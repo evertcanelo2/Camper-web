@@ -14,6 +14,7 @@ export default function CollectionTabs({ activeCategory }: CollectionTabsProps) 
 
   useEffect(() => {
     if (activeCategory) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActive(activeCategory);
     }
   }, [activeCategory]);

@@ -48,6 +48,7 @@ export default function HeroCarousel() {
   useEffect(() => {
     if (!emblaApi) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrent(emblaApi.selectedScrollSnap());
 
     emblaApi.on("select", () => {
