@@ -47,8 +47,8 @@ export default function Footer() {
         {/* Redes Sociales (Placeholder) */}
         <div className="flex gap-6">
           <a href="https://www.instagram.com/camper.ve?stkn=MWI0ZmpvNm9namZxNA==" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Instagram</a>
-          <a href="#" className="hover:text-brand-gold transition-colors">TikTok</a>
-          <a href="#" className="hover:text-brand-gold transition-colors">WhatsApp</a>
+          <a href="https://www.tiktok.com/@camper.ve" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">TikTok</a>
+          <a href="https://wa.me/584145096447" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">WhatsApp</a>
         </div>
       </div>
     </footer>
