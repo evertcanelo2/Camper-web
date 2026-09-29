@@ -1,18 +1,36 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, MessageCircle, X } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 export default function ContactSupport() {
   const [isOpen, setIsOpen] = useState(false);
+  const searchParams = useSearchParams();
 
   const toggleModal = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (searchParams.get('contact') === 'true') {
+      // Usamos un pequeño delay para permitir que Next.js haga el scroll hacia arriba primero
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        // Limpiamos la URL silenciosamente sin interrumpir el router de Next.js
+        const newSearchParams = new URLSearchParams(window.location.search);
+        newSearchParams.delete('contact');
+        const newUrl = window.location.pathname + (newSearchParams.toString() ? `?${newSearchParams.toString()}` : '');
+        window.history.replaceState(null, '', newUrl);
+      }, 150);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams]);
 
   const socialLinks = [
     {
       name: 'WhatsApp',
       icon: <MessageCircle className="w-5 h-5" />,
-      url: 'https://wa.me/584145096447',
+      url: 'https://wa.me/584145096447?text=Holaaa%20bienvenido%20a%20camper%20%F0%9F%92%99%F0%9F%A4%8E%0A%0AInd%C3%ADcanos%20los%20siguientes%20datos%20para%20guardar%20tu%20n%C3%BAmero%20y%20as%C3%AD%20mantenerte%20informad%40%20%F0%9F%99%8C%F0%9F%8F%BB%0A%0A%F0%9F%93%8ENombre%20y%20apellido%3A%20%0A%F0%9F%93%8D%C2%BFEn%20qu%C3%A9%20estado%20te%20encuentras%3F%3A%20%0A%0A%C2%BFcomo%20podemos%20ayudarte%3F',
     },
     {
       name: 'Instagram',

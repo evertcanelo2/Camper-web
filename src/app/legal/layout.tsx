@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactSupport from '@/components/ContactSupport';
@@ -37,7 +38,9 @@ export default function LegalLayout({
               <p className="text-xs font-light text-brand-mocha/70 mb-4">
                 Nuestro equipo de atención al cliente está disponible para ayudarte.
               </p>
-              <ContactSupport />
+              <Suspense fallback={null}>
+                <ContactSupport />
+              </Suspense>
             </div>
           </div>
         </aside>

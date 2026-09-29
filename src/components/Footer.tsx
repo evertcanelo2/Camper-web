@@ -25,7 +25,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold tracking-widest text-xs uppercase mb-6 text-brand-gold">Atención</h3>
           <ul className="space-y-4 text-sm font-normal text-brand-mocha/90">
-            <li><Link href="/legal/terminos#contacto" className="hover:text-brand-gold transition-colors">Contacto</Link></li>
+            <li><Link href="/legal/terminos?contact=true" className="hover:text-brand-gold transition-colors">Contacto</Link></li>
             <li><Link href="/legal/terminos#envios" className="hover:text-brand-gold transition-colors">Envíos</Link></li>
             <li><Link href="/legal/terminos#devoluciones" className="hover:text-brand-gold transition-colors">Devoluciones</Link></li>
           </ul>
@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="flex gap-6">
           <a href="https://www.instagram.com/camper.ve?stkn=MWI0ZmpvNm9namZxNA==" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">Instagram</a>
           <a href="https://www.tiktok.com/@camper.ve" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">TikTok</a>
-          <a href="https://wa.me/584145096447" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">WhatsApp</a>
+          <a href="https://wa.me/584145096447?text=Holaaa%20bienvenido%20a%20camper%20%F0%9F%92%99%F0%9F%A4%8E%0A%0AInd%C3%ADcanos%20los%20siguientes%20datos%20para%20guardar%20tu%20n%C3%BAmero%20y%20as%C3%AD%20mantenerte%20informad%40%20%F0%9F%99%8C%F0%9F%8F%BB%0A%0A%F0%9F%93%8ENombre%20y%20apellido%3A%20%0A%F0%9F%93%8D%C2%BFEn%20qu%C3%A9%20estado%20te%20encuentras%3F%3A%20%0A%0A%C2%BFcomo%20podemos%20ayudarte%3F" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">WhatsApp</a>
         </div>
       </div>
     </footer>
