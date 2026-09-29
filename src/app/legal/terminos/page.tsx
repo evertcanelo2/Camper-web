@@ -32,7 +32,7 @@ export default function TerminosPage() {
 
       <section className="space-y-4">
         <h2 className="text-xl font-medium text-brand-denim">3. Condiciones de Compra</h2>
-        
+
         <h3 className="text-lg font-medium text-brand-denim/80 mt-4">3.1. Requisitos de Edad</h3>
         <p className="text-sm font-light text-brand-mocha/80 leading-relaxed">
           Al realizar una compra en la Web o al suscribirte a nuestra lista de correo, confirmas que eres mayor de edad de acuerdo con la legislación vigente venezolana.
@@ -68,7 +68,7 @@ export default function TerminosPage() {
 
       <section id="envios" className="space-y-4">
         <h2 className="text-xl font-medium text-brand-denim">5. Políticas de Envío</h2>
-        
+
         <h3 className="text-lg font-medium text-brand-denim/80 mt-4">5.1. Envíos Nacionales (Venezuela)</h3>
         <p className="text-sm font-light text-brand-mocha/80 leading-relaxed">
           <strong>Envíos en Barquisimeto:</strong> Las compras realizadas y confirmadas serán despachadas entre 1 día a 2 días hábiles.<br />
@@ -83,7 +83,7 @@ export default function TerminosPage() {
 
       <section id="devoluciones" className="space-y-4">
         <h2 className="text-xl font-medium text-brand-denim">6. Política de Devoluciones y Reembolsos</h2>
-        
+
         <h3 className="text-lg font-medium text-brand-denim/80 mt-4">6.1. Condiciones para Devolución</h3>
         <p className="text-sm font-light text-brand-mocha/80 leading-relaxed">
           Aceptamos devoluciones bajo las siguientes condiciones:
@@ -95,7 +95,7 @@ export default function TerminosPage() {
         </ul>
         <p className="text-sm font-light text-brand-mocha/80 leading-relaxed">
           Para que la devolución sea válida, el producto <strong>no debe haber sido usado</strong>, debe estar en su empaque original y conservar todas sus etiquetas. En caso contrario, la devolución no será procesada.<br />
-          El producto tiene que estar dentro de los [30 días] de comprado; pasados los [30 días] no se procesa el cambio/devolución.
+          El producto tiene que estar dentro de los [10 días] de comprado; pasados los [10 días] no se procesa el cambio/devolución.
         </p>
 
         <h3 className="text-lg font-medium text-brand-denim/80 mt-4">6.2. Excepciones de Devolución</h3>
@@ -103,7 +103,6 @@ export default function TerminosPage() {
           No se aceptan devoluciones para los siguientes productos:
         </p>
         <ul className="list-disc pl-5 text-sm font-light text-brand-mocha/80 leading-relaxed space-y-2">
-          <li>Samples (muestras).</li>
           <li>Productos en descuento, liquidación o promoción.</li>
         </ul>
 
@@ -139,7 +138,7 @@ export default function TerminosPage() {
       <section className="space-y-4">
         <h2 className="text-xl font-medium text-brand-denim">10. Jurisdicción y Ley Aplicable</h2>
         <p className="text-sm font-light text-brand-mocha/80 leading-relaxed">
-          Estos Términos y Condiciones se rigen e interpretan de acuerdo con las leyes de la República Bolivariana de Venezuela. Cualquier disputa legal que surja en relación con estos términos o el uso de la Web será sometida a la jurisdicción de los tribunales competentes en [CIUDAD, ESTADO, VENEZUELA].
+          Estos Términos y Condiciones se rigen e interpretan de acuerdo con las leyes de la República Bolivariana de Venezuela. Cualquier disputa legal que surja en relación con estos términos o el uso de la Web será sometida a la jurisdicción de los tribunales competentes en [Barquisimeto, Lara, Venezuela].
         </p>
       </section>
 

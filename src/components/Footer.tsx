@@ -23,15 +23,6 @@ export default function Footer() {
         </div>
         
         <div>
-          <h3 className="font-semibold tracking-widest text-xs uppercase mb-6 text-brand-gold">Navegación</h3>
-          <ul className="space-y-4 text-sm font-normal text-brand-mocha/90">
-            <li><Link href="/#colecciones" className="hover:text-brand-gold transition-colors">Colecciones</Link></li>
-            <li><Link href="#" className="hover:text-brand-gold transition-colors">Nuestro Origen</Link></li>
-            <li><Link href="#" className="hover:text-brand-gold transition-colors">Sostenibilidad</Link></li>
-          </ul>
-        </div>
-        
-        <div>
           <h3 className="font-semibold tracking-widest text-xs uppercase mb-6 text-brand-gold">Atención</h3>
           <ul className="space-y-4 text-sm font-normal text-brand-mocha/90">
             <li><Link href="#" className="hover:text-brand-gold transition-colors">Contacto</Link></li>
@@ -51,7 +42,7 @@ export default function Footer() {
       </div>
       
       <div className="max-w-7xl mx-auto mt-12 pt-6 md:mt-24 md:pt-8 border-t border-brand-mocha/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-normal text-brand-mocha/70">
-        <p>© {new Date().getFullYear()} Camper Elegance. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} Camper VE. Todos los derechos reservados.</p>
         
         {/* Redes Sociales (Placeholder) */}
         <div className="flex gap-6">

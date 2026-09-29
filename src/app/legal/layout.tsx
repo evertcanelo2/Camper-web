@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ContactSupport from '@/components/ContactSupport';
 
 export default function LegalLayout({
   children,
@@ -36,9 +37,7 @@ export default function LegalLayout({
               <p className="text-xs font-light text-brand-mocha/70 mb-4">
                 Nuestro equipo de atención al cliente está disponible para ayudarte.
               </p>
-              <a href="mailto:soporte@camper.com.ve" className="text-xs font-medium text-brand-gold hover:text-brand-camel transition-colors">
-                Contactar Soporte →
-              </a>
+              <ContactSupport />
             </div>
           </div>
         </aside>
