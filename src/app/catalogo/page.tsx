@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { categories } from '@/lib/collectionData';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function CatalogoPage() {
@@ -33,7 +31,7 @@ export default function CatalogoPage() {
 
       {/* Sections */}
       <div id="colecciones" className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-24 space-y-24 md:space-y-32">
-        {categories.map((category, catIndex) => (
+        {categories.map((category) => (
           <section 
             key={category.slug} 
             id={category.slug} 

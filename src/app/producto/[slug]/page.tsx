@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ImageGallery from '@/components/ImageGallery';
 import ProductInteractions from '@/components/ProductInteractions';
-import { getProductBySlug, getCategoryByProductSlug } from '@/lib/collectionData';
+import { getProductBySlug } from '@/lib/collectionData';
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -15,8 +15,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     redirect('/catalogo');
   }
 
-  const categoryData = getCategoryByProductSlug(slug);
-  const category = categoryData ? { name: categoryData.name, slug: categoryData.slug } : null;
   const images = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
 
   return (
@@ -27,21 +25,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-16 pt-8 md:pt-40 pb-20">
         
-        {/* Breadcrumbs & Navigation */}
-        <div className="flex justify-between items-center mb-8 text-xs md:text-sm text-brand-denim/70 font-light tracking-wide">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="hover:text-brand-denim transition-colors">Inicio</Link>
-            <ChevronRight className="w-3 h-3" />
-            <Link href="/catalogo" className="hover:text-brand-denim transition-colors">Catálogo</Link>
-            {category && (
-              <>
-                <ChevronRight className="w-3 h-3" />
-                <Link href={`/catalogo#${category.slug}`} className="hover:text-brand-denim transition-colors">{category.name}</Link>
-              </>
-            )}
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-brand-denim font-medium">{product.name}</span>
-          </div>
+        <div className="flex justify-end items-center mb-8 text-xs md:text-sm text-brand-denim/70 font-light tracking-wide">
           <Link href="/catalogo" className="hover:text-brand-denim transition-colors flex items-center gap-1">
             Volver <ChevronRight className="w-3 h-3" />
           </Link>

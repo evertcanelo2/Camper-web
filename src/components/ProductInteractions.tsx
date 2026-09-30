@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
@@ -20,12 +20,7 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
   const [selectedSize, setSelectedSize] = useState(initialSize);
   const [quantity, setQuantity] = useState(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsClient(true);
-  }, []);
+  const [isAdded, setIsAdded] = useState(false);
 
   const handleAddToCart = useCallback(() => {
     addToCart({
@@ -38,6 +33,12 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
       size: selectedSize || 'N/A',
       quantity
     });
+    
+    // Feedback animation
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
   }, [addToCart, product, selectedColor, selectedSize, quantity]);
 
   const getWhatsAppLink = () => {
@@ -47,13 +48,6 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
 
   return (
     <div>
-      {/* Debug: remove after confirming fix */}
-      {!isClient && (
-        <div style={{ padding: '8px', background: '#fee2e2', border: '1px solid #ef4444', borderRadius: '4px', marginBottom: '12px', fontSize: '12px', color: '#991b1b' }}>
-          ⚠️ JavaScript no ha hidratado. Los botones no funcionarán.
-        </div>
-      )}
-
       {/* Color Selector */}
       {product.colors && product.colors.length > 0 && (
         <div className="mb-8">
@@ -66,10 +60,10 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
                 disabled={!color.available}
                 onClick={() => setSelectedColor(color.name)}
                 className={cn(
-                  "px-4 py-2 border text-sm rounded-md bg-white appearance-none",
+                  "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors",
                   selectedColor === color.name 
                     ? "border-brand-denim border-[1.5px] text-brand-denim font-medium bg-gray-50"
-                    : "border-gray-200 text-brand-denim/70",
+                    : "border-gray-200 text-brand-denim/70 hover:border-gray-300",
                   !color.available && "opacity-40 bg-gray-50 line-through decoration-gray-300"
                 )}
               >
@@ -92,10 +86,10 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
                 disabled={!size.available}
                 onClick={() => setSelectedSize(size.name)}
                 className={cn(
-                  "min-w-[3rem] px-4 py-2 border text-sm rounded-md flex justify-center items-center bg-white appearance-none",
+                  "min-w-[3rem] px-4 py-2 border text-sm rounded-md flex justify-center items-center bg-white appearance-none transition-colors",
                   selectedSize === size.name 
                     ? "border-brand-denim border-[1.5px] text-brand-denim font-medium bg-gray-50"
-                    : "border-gray-200 text-brand-denim/70",
+                    : "border-gray-200 text-brand-denim/70 hover:border-gray-300",
                   !size.available && "opacity-40 bg-gray-50 line-through decoration-gray-300"
                 )}
               >
@@ -113,7 +107,7 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
           <button 
             type="button"
             onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-            className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none"
+            className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none hover:bg-gray-50 transition-colors"
           >
             <Minus className="w-4 h-4" />
           </button>
@@ -123,7 +117,7 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
           <button 
             type="button"
             onClick={() => setQuantity(prev => prev + 1)}
-            className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none"
+            className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none hover:bg-gray-50 transition-colors"
           >
             <Plus className="w-4 h-4" />
           </button>
@@ -135,9 +129,15 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
         <button 
           type="button"
           onClick={handleAddToCart}
-          className="w-full py-4 border border-brand-denim text-brand-denim font-medium text-xs tracking-widest uppercase rounded-md bg-white appearance-none"
+          disabled={isAdded}
+          className={cn(
+            "w-full py-4 border font-medium text-xs tracking-widest uppercase rounded-md bg-white appearance-none transition-all duration-300",
+            isAdded 
+              ? "border-green-500 text-green-600 bg-green-50 shadow-sm"
+              : "border-brand-denim text-brand-denim hover:bg-brand-denim hover:text-white"
+          )}
         >
-          Agregar al carrito
+          {isAdded ? "¡Agregado a la cesta!" : "Agregar al carrito"}
         </button>
         <a 
           href={getWhatsAppLink()}

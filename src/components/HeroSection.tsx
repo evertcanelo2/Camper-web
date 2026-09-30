@@ -3,13 +3,24 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section className="relative w-full h-[100svh] min-h-[450px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Images for Art Direction */}
+      {/* Background Image for Mobile */}
+      <Image
+        src="/images/HeroForPhone.jpg"
+        alt="Camper Elegance"
+        fill
+        className="object-cover object-[center_top] md:hidden"
+        priority
+        unoptimized={true}
+      />
+
+      {/* Background Image for Desktop */}
       <Image
         src="/images/HeroForDesk.jpg"
         alt="Camper Elegance"
         fill
-        className="object-cover object-[center_top] md:object-center"
+        className="hidden md:block object-cover object-[center_top] md:object-center"
         priority
+        unoptimized={true}
       />
 
       {/* Official Logo Overlay */}
@@ -21,6 +32,7 @@ export default function HeroSection() {
             fill
             className="object-contain"
             priority
+            sizes="(max-width: 768px) 400px, 800px"
           />
         </div>
       </div>

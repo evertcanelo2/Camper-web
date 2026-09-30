@@ -7,13 +7,7 @@ import { cn } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
-interface CollectionBentoGridProps {
-  onCategoryClick?: (slug: string) => void;
-}
-
-export default function CollectionBentoGrid({
-  onCategoryClick,
-}: CollectionBentoGridProps) {
+export default function CollectionBentoGrid() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollRight = () => {
