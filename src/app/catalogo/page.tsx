@@ -66,6 +66,7 @@ export default function CatalogoPage() {
                       <img 
                         src={product.image} 
                         alt={product.name}
+                        style={product.imagePosition ? { objectPosition: product.imagePosition } : undefined}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                       />

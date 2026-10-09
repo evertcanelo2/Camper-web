@@ -4,13 +4,15 @@ import { useState, useCallback } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
-import type { Product } from '@/lib/collectionData';
+import type { Product, ProductColor } from '@/lib/collectionData';
 
 interface ProductInteractionsProps {
   product: Product;
+  /** Se llama al elegir un color (para cambiar la foto de la galería). */
+  onColorChange?: (color: ProductColor) => void;
 }
 
-export default function ProductInteractions({ product }: ProductInteractionsProps) {
+export default function ProductInteractions({ product, onColorChange }: ProductInteractionsProps) {
   const { addToCart } = useCart();
 
   const initialColor = product?.colors?.find(c => c.available)?.name || '';
@@ -28,7 +30,7 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
       name: product.name,
       price: product.price,
       numericPrice: product.numericPrice || 0,
-      image: product.image,
+      image: product.colors?.find(c => c.name === selectedColor)?.image || product.image,
       color: selectedColor || 'N/A',
       size: selectedSize || 'N/A',
       quantity
@@ -58,15 +60,21 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
                 key={color.name}
                 type="button"
                 disabled={!color.available}
-                onClick={() => setSelectedColor(color.name)}
+                onClick={() => { setSelectedColor(color.name); onColorChange?.(color); }}
                 className={cn(
-                  "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors",
+                  "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors inline-flex items-center gap-2",
                   selectedColor === color.name 
                     ? "border-brand-denim border-[1.5px] text-brand-denim font-medium bg-gray-50"
                     : "border-gray-200 text-brand-denim/70 hover:border-gray-300",
                   !color.available && "opacity-40 bg-gray-50 line-through decoration-gray-300"
                 )}
               >
+                {color.hex && (
+                  <span
+                    className="w-3.5 h-3.5 rounded-full border border-gray-300"
+                    style={{ backgroundColor: color.hex }}
+                  />
+                )}
                 {color.name}
               </button>
             ))}
@@ -168,7 +176,7 @@ export default function ProductInteractions({ product }: ProductInteractionsProp
               </span>
             </button>
             {activeAccordion === item.id && (
-              <div className="pb-6 text-sm font-light text-brand-denim/80 leading-relaxed">
+              <div className="pb-6 text-sm font-light text-brand-denim/80 leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
                 {item.content}
               </div>
             )}

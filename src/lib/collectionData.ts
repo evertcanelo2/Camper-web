@@ -2,6 +2,8 @@ export interface ProductColor {
   name: string;
   hex?: string;
   available: boolean;
+  /** Foto asociada a este color (debe estar también en gallery). */
+  image?: string;
 }
 
 export interface ProductSize {
@@ -16,6 +18,8 @@ export interface Product {
   price: string;
   numericPrice?: number;
   image: string;
+  /** Encuadre de la foto en la tarjeta (CSS object-position). Ej: "center 65%". Por defecto: centro. */
+  imagePosition?: string;
   badge?: string;
   subtitle?: string;
   description?: string;
@@ -60,13 +64,13 @@ export const categories: Category[] = [
     tagline: "El clásico reimaginado",
     image: "/images/Franela4.png",
     products: [
-      { 
-        id: 1, 
+      {
+        id: 1,
         slug: "franela-esencial-blanca",
-        name: "Franela Esencial Blanca", 
-        price: "$29.00 USD", 
+        name: "Franela Esencial Blanca",
+        price: "$29.00 USD",
         numericPrice: 29.00,
-        image: "/images/FranelSinFondo.png", 
+        image: "/images/FranelSinFondo.png",
         badge: "Bestseller",
         subtitle: "Inventario en el camino",
         description: defaultDescription,
@@ -74,11 +78,11 @@ export const categories: Category[] = [
         sizes: defaultSizes,
         gallery: ["/images/FranelSinFondo.png", "/images/Franela2.png", "/images/Franela3.png", "/images/Franela4.png"]
       },
-      { 
-        id: 2, 
+      {
+        id: 2,
         slug: "franela-urban-dark",
-        name: "Franela Urban Dark", 
-        price: "$35.00 USD", 
+        name: "Franela Urban Dark",
+        price: "$35.00 USD",
         numericPrice: 35.00,
         image: "/images/Franela2.png",
         subtitle: "Envío inmediato",
@@ -87,11 +91,11 @@ export const categories: Category[] = [
         sizes: defaultSizes,
         gallery: ["/images/Franela2.png", "/images/FranelSinFondo.png"]
       },
-      { 
-        id: 3, 
+      {
+        id: 3,
         slug: "franela-classic-fit",
-        name: "Franela Classic Fit", 
-        price: "$32.00 USD", 
+        name: "Franela Classic Fit",
+        price: "$32.00 USD",
         numericPrice: 32.00,
         image: "/images/Franela3.png",
         subtitle: "Pocas unidades",
@@ -100,13 +104,13 @@ export const categories: Category[] = [
         sizes: defaultSizes,
         gallery: ["/images/Franela3.png"]
       },
-      { 
-        id: 4, 
+      {
+        id: 4,
         slug: "franela-premium-navy",
-        name: "Franela Premium Navy", 
-        price: "$42.00 USD", 
+        name: "Franela Premium Navy",
+        price: "$42.00 USD",
         numericPrice: 42.00,
-        image: "/images/Franela4.png", 
+        image: "/images/Franela4.png",
         badge: "Nuevo",
         subtitle: "Exclusivo web",
         description: defaultDescription,
@@ -133,9 +137,63 @@ export const categories: Category[] = [
     tagline: "El tiempo con estilo",
     image: "/images/Reloj1.jpg",
     products: [
-      { id: 8, slug: "reloj-minimal-gold", name: "Reloj Minimal Gold", price: "$120.00 USD", numericPrice: 120.00, image: "/images/Reloj1.jpg", badge: "Premium", description: defaultDescription, gallery: ["/images/Reloj1.jpg"] },
-      { id: 9, slug: "reloj-classic-leather", name: "Reloj Classic Leather", price: "$95.00 USD", numericPrice: 95.00, image: "/images/Reloj1.jpg", description: defaultDescription, gallery: ["/images/Reloj1.jpg"] },
-      { id: 10, slug: "reloj-sport-carbon", name: "Reloj Sport Carbon", price: "$110.00 USD", numericPrice: 110.00, image: "/images/Reloj1.jpg", description: defaultDescription, gallery: ["/images/Reloj1.jpg"] },
+      {
+        id: 8, slug: "reloj-qcong", name: "Reloj Qcong", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Reloj1.jpg", description: `Sofisticado reloj de caballero con una marcada caja de forma cuadrada/cojín y un llamativo dial texturizado en tono marrón, blanco y negro. Su acabado metálico pulido le aporta una presencia moderna, versátil y de gran personalidad para cualquier ocasión.
+
+Funciones:
+• Cuenta con indicación precisa de hora y ventanilla de fecha.
+• Acero inoxidable de alta resistencia con acabado pulido espejo.
+• Cómoda y duradera correa de goma (silicona).
+
+Importante: Resistente solo a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.`, gallery: ["/images/Reloj1.jpg"]
+      },
+      {
+        id: 9, slug: "reloj-casio-enticer-mtp", name: "Reloj Casio Enticer MTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Casio-Enticer-MTP.jpg", imagePosition: "center 65%", description: `Casio Enticer MTP 
+
+Clásico, elegante y atemporal. Cuenta con una sofisticada caja redonda de acero inoxidable y un limpio dial con finos marcadores e índices plateados, ideal para un look formal y versátil en el día a día.
+
+Funciones: Cuenta con indicación precisa de hora y ventanilla de fecha 
+
+Acero inoxidable de alta calidad con acabado pulido y brillante.
+
+Correa clásica de eslabones metálicos resistente, duradero y cómodo para la muñeca.
+
+Medidas de la caja del reloj 4cm de ancho x 4cm de largo
+
+Importante: 
+Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.` , gallery: ["/images/Casio-Enticer-MTP.jpg"]
+      },
+      {
+        id: 10, slug: "reloj-casio-vintage-ltp", name: "Reloj Casio Vintage Cuadrado de Caballero LTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Casio-Vintage-LTP.jpg", description: `Reloj Casio Vintage Cuadrado de Caballero LTP 
+
+Moderno, retro y con mucha personalidad. Presenta una llamativa caja de forma cuadrada/cojín con esquinas redondeadas y un elegante dial
+ideal para destacar con un estilo clásico y urbano a la vez.
+
+Funciones: Cuenta con indicación precisa de hora y ventanilla de fecha 
+
+Caja: Fabricada en acero inoxidable de alta calidad con un acabado brillante y pulido.
+
+Correa metálica de eslabones ajustables 
+
+Medida de la caja del reloj 4cm de ancho x 4cm de largo 
+
+Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.`, gallery: ["/images/Casio-Vintage-LTP.jpg"]
+      },
+      {
+        id: 20,
+        slug: "reloj-caterpillar",
+        name: "Reloj Caterpillar",
+        price: "$15.00 USD",
+        numericPrice: 15.00,
+        image: "/images/caterpillar-azul-oscuro.jpg",
+        description: `Escribe aquí la descripción del Reloj Caterpillar.`,
+        colors: [
+          { name: 'Azul oscuro', hex: '#1F2A44', available: true, image: "/images/caterpillar-azul-oscuro.jpg" },
+          { name: 'Marrón', hex: '#6B4226', available: true, image: "/images/caterpillar-marron.jpg" },
+          { name: 'Negro', hex: '#111111', available: true, image: "/images/caterpillar-negro.jpg" },
+        ],
+        gallery: ["/images/caterpillar-azul-oscuro.jpg", "/images/caterpillar-marron.jpg", "/images/caterpillar-negro.jpg"]
+      },
     ],
   },
   {

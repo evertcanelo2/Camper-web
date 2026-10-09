@@ -10,7 +10,6 @@ export default function HeroSection() {
         fill
         className="object-cover object-[center_top] md:hidden"
         priority
-        unoptimized={true}
       />
 
       {/* Background Image for Desktop */}
@@ -20,7 +19,6 @@ export default function HeroSection() {
         fill
         className="hidden md:block object-cover object-[center_top] md:object-center"
         priority
-        unoptimized={true}
       />
 
       {/* Official Logo Overlay */}

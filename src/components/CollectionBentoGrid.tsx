@@ -6,6 +6,7 @@ import { categories } from '@/lib/collectionData';
 import { cn } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CollectionBentoGrid() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -87,16 +88,16 @@ export default function CollectionBentoGrid() {
               >
               {/* ── Image ── */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-white/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={category.image}
                   alt={category.name}
+                  fill
                   className={cn(
-                    'w-full h-full object-cover',
+                    'object-cover',
                     'transition-transform duration-700 ease-out',
                     'group-hover:scale-105'
                   )}
-                  loading="lazy"
+                  sizes="(max-width: 768px) 80vw, (max-width: 1024px) 340px, 380px"
                 />
               </div>
 

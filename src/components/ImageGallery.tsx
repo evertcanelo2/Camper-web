@@ -7,10 +7,19 @@ import { cn } from '@/lib/utils';
 interface ImageGalleryProps {
   images: string[];
   productName: string;
+  /** Opcional: índice activo controlado desde fuera. */
+  activeIndex?: number;
+  onIndexChange?: (index: number) => void;
 }
 
-export default function ImageGallery({ images, productName }: ImageGalleryProps) {
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+export default function ImageGallery({ images, productName, activeIndex, onIndexChange }: ImageGalleryProps) {
+  const [internalIndex, setInternalIndex] = useState(0);
+  const activeImageIndex = activeIndex ?? internalIndex;
+  const setActiveImageIndex = (next: number | ((prev: number) => number)) => {
+    const value = typeof next === 'function' ? next(activeImageIndex) : next;
+    setInternalIndex(value);
+    onIndexChange?.(value);
+  };
 
   return (
     <div className="lg:col-span-7 flex flex-col gap-4">

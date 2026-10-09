@@ -3,8 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ImageGallery from '@/components/ImageGallery';
-import ProductInteractions from '@/components/ProductInteractions';
+import ProductDetail from '@/components/ProductDetail';
 import { getProductBySlug } from '@/lib/collectionData';
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -32,31 +31,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          
-          {/* Left Column: Image Gallery (Client Component) */}
-          <ImageGallery images={images} productName={product.name} />
-
-          {/* Right Column: Product Details */}
-          <div className="lg:col-span-5 flex flex-col pt-2 md:pt-6">
-            
-            <h1 className="text-3xl md:text-5xl font-bold italic tracking-tight text-brand-denim mb-4" style={{ fontFamily: 'var(--font-poppins)' }}>
-              {product.name}
-            </h1>
-            
-            <div className="text-xl md:text-2xl font-light text-brand-denim mb-2">
-              {product.price}
-            </div>
-            
-            {product.subtitle && (
-              <div className="text-sm font-light text-brand-mocha/70 mb-8">
-                {product.subtitle}
-              </div>
-            )}
-
-            {/* All interactive elements (Client Component) */}
-            <ProductInteractions product={product} />
-
-          </div>
+          {/* Galería + detalles (Client Component, comparten el color elegido) */}
+          <ProductDetail product={product} images={images} />
         </div>
       </div>
 
