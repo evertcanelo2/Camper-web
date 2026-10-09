@@ -8,13 +8,14 @@ import type { Product } from '@/lib/collectionData';
 interface ProductDetailProps {
   product: Product;
   images: string[];
+  returnsPolicy?: string;
 }
 
 /**
  * Une la galería (izquierda) con los detalles (derecha) para que compartan
  * el estado: al elegir un color, la galería cambia a la foto de ese color.
  */
-export default function ProductDetail({ product, images }: ProductDetailProps) {
+export default function ProductDetail({ product, images, returnsPolicy }: ProductDetailProps) {
   // Foto inicial: la del primer color disponible (o la primera de la galería)
   const initialImage = product.colors?.find((c) => c.available)?.image;
   const initialIndex = Math.max(0, initialImage ? images.indexOf(initialImage) : 0);
@@ -51,6 +52,7 @@ export default function ProductDetail({ product, images }: ProductDetailProps) {
 
         <ProductInteractions
           product={product}
+          returnsPolicy={returnsPolicy}
           onColorChange={(color) => {
             const idx = color.image ? images.indexOf(color.image) : -1;
             if (idx >= 0) setActiveIndex(idx);

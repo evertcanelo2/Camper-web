@@ -34,6 +34,7 @@ export interface Category {
   tagline: string;
   image: string;
   products: Product[];
+  returnsPolicy?: string;
 }
 
 // Common options for reuse
@@ -136,6 +137,7 @@ export const categories: Category[] = [
     name: "Relojes",
     tagline: "El tiempo con estilo",
     image: "/images/Reloj1.jpg",
+    returnsPolicy: "Solo se ofrecen 10 días para devoluciones por defectos de fábrica.",
     products: [
       {
         id: 8, slug: "reloj-qcong", name: "Reloj Qcong", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Reloj1.jpg", description: `Sofisticado reloj de caballero con una marcada caja de forma cuadrada/cojín y un llamativo dial texturizado en tono marrón, blanco y negro. Su acabado metálico pulido le aporta una presencia moderna, versátil y de gran personalidad para cualquier ocasión.
@@ -164,7 +166,7 @@ Importante:
 Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.` , gallery: ["/images/Casio-Enticer-MTP.jpg"]
       },
       {
-        id: 10, slug: "reloj-casio-vintage-ltp", name: "Reloj Casio Vintage Cuadrado de Caballero LTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Casio-Vintage-LTP.jpg", description: `Reloj Casio Vintage Cuadrado de Caballero LTP 
+        id: 10, slug: "reloj-casio-vintage-ltp", name: "Reloj Casio Vintage Cuadrado LTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Casio-Vintage-LTP.jpg", description: `Reloj Casio Vintage Cuadrado de Caballero LTP 
 
 Moderno, retro y con mucha personalidad. Presenta una llamativa caja de forma cuadrada/cojín con esquinas redondeadas y un elegante dial
 ideal para destacar con un estilo clásico y urbano a la vez.
