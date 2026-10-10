@@ -16,10 +16,18 @@ interface ProductDetailProps {
  * el estado: al elegir un color, la galería cambia a la foto de ese color.
  */
 export default function ProductDetail({ product, images, returnsPolicy }: ProductDetailProps) {
-  // Foto inicial: la del primer color disponible (o la primera de la galería)
-  const initialImage = product.colors?.find((c) => c.available)?.image;
-  const initialIndex = Math.max(0, initialImage ? images.indexOf(initialImage) : 0);
+  // Color y foto inicial: el primer color disponible (o la primera foto de la galería)
+  const initialColor = product.colors?.find((c) => c.available);
+  const initialIndex = Math.max(0, initialColor?.image ? images.indexOf(initialColor.image) : 0);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
+  const [selectedColor, setSelectedColor] = useState(initialColor?.name || '');
+
+  // Al cambiar de foto (miniatura o flechas): si esa foto pertenece a un color, se selecciona ese color
+  const handleIndexChange = (index: number) => {
+    setActiveIndex(index);
+    const color = product.colors?.find((c) => c.available && c.image === images[index]);
+    if (color) setSelectedColor(color.name);
+  };
 
   return (
     <>
@@ -28,7 +36,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
         images={images}
         productName={product.name}
         activeIndex={activeIndex}
-        onIndexChange={setActiveIndex}
+        onIndexChange={handleIndexChange}
       />
 
       {/* Right Column: Product Details */}
@@ -53,7 +61,9 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
         <ProductInteractions
           product={product}
           returnsPolicy={returnsPolicy}
+          selectedColor={selectedColor}
           onColorChange={(color) => {
+            setSelectedColor(color.name);
             const idx = color.image ? images.indexOf(color.image) : -1;
             if (idx >= 0) setActiveIndex(idx);
           }}

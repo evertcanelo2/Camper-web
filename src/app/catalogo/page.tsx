@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { categories } from '@/lib/collectionData';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CatalogoPage() {
   return (
@@ -62,13 +63,13 @@ export default function CatalogoPage() {
                     transition={{ duration: 0.5, delay: prodIndex * 0.1 }}
                   >
                     <div className="relative aspect-[4/5] bg-gray-50 rounded-2xl overflow-hidden mb-6">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img 
+                      <Image 
                         src={product.image} 
                         alt={product.name}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         style={product.imagePosition ? { objectPosition: product.imagePosition } : undefined}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        loading="lazy"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                       {product.badge && (
                         <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-denim text-xs font-medium px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">

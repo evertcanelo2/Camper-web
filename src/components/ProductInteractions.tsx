@@ -9,17 +9,22 @@ import type { Product, ProductColor } from '@/lib/collectionData';
 interface ProductInteractionsProps {
   product: Product;
   returnsPolicy?: string;
+  /** Color seleccionado (lo controla ProductDetail para sincronizarlo con la galería). */
+  selectedColor?: string;
   /** Se llama al elegir un color (para cambiar la foto de la galería). */
   onColorChange?: (color: ProductColor) => void;
 }
 
-export default function ProductInteractions({ product, returnsPolicy, onColorChange }: ProductInteractionsProps) {
+export default function ProductInteractions({ product, returnsPolicy, selectedColor: selectedColorProp, onColorChange }: ProductInteractionsProps) {
   const { addToCart } = useCart();
 
   const initialColor = product?.colors?.find(c => c.available)?.name || '';
   const initialSize = product?.sizes?.find(s => s.available)?.name || '';
 
-  const [selectedColor, setSelectedColor] = useState(initialColor);
+  const [localColor, setLocalColor] = useState(initialColor);
+  // Si el padre nos pasa el color, usamos ese; si no, el estado local
+  const selectedColor = selectedColorProp ?? localColor;
+  const setSelectedColor = setLocalColor;
   const [selectedSize, setSelectedSize] = useState(initialSize);
   const [quantity, setQuantity] = useState(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);

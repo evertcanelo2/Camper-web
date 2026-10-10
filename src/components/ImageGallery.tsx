@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface ImageGalleryProps {
   images: string[];
@@ -24,11 +25,13 @@ export default function ImageGallery({ images, productName, activeIndex, onIndex
   return (
     <div className="lg:col-span-7 flex flex-col gap-4">
       <div className="relative aspect-[4/5] bg-[#F5F5F5] rounded-2xl overflow-hidden group">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img 
+        <Image 
           src={images[activeImageIndex]} 
           alt={`${productName} view ${activeImageIndex + 1}`} 
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
         />
         
         {images.length > 1 && (
@@ -64,8 +67,7 @@ export default function ImageGallery({ images, productName, activeIndex, onIndex
                 activeImageIndex === idx ? "ring-1 ring-brand-denim ring-offset-2 opacity-100" : "opacity-60"
               )}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-cover" />
+              <Image src={img} alt={`Thumbnail ${idx}`} fill sizes="80px" className="object-cover" />
             </button>
           ))}
         </div>

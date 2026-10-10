@@ -4,7 +4,35 @@ import { redirect } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductDetail from '@/components/ProductDetail';
-import { getProductBySlug, getCategoryByProductSlug } from '@/lib/collectionData';
+import { Metadata } from 'next';
+import { getProductBySlug, getCategoryByProductSlug, categories } from '@/lib/collectionData';
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+
+  if (!product) {
+    return {
+      title: 'Producto no encontrado | Camper',
+    };
+  }
+
+  return {
+    title: `${product.name} | Camper`,
+    description: product.description?.substring(0, 150) || `Comprar ${product.name}`,
+    openGraph: {
+      title: `${product.name} | Camper`,
+      description: product.description?.substring(0, 150) || `Comprar ${product.name}`,
+      images: [{ url: product.image }],
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  const allProducts = categories.flatMap(cat => cat.products);
+  return allProducts.map((product) => ({
+    slug: product.slug,
+  }));
+}
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

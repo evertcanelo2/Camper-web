@@ -2,6 +2,7 @@
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const images = [
   "/images/Reloj1.jpg",
@@ -83,10 +84,12 @@ const Column = ({ images, y, className = "", isMobile }: ColumnProps) => {
           {src === "H" ? (
             <span className="text-[12rem] font-bold text-gray-300">H</span>
           ) : (
-            <img
+            <Image
               src={`${src}`}
               alt="image"
-              className="pointer-events-none object-cover h-full w-full absolute inset-0"
+              fill
+              sizes="(max-width: 768px) 100vw, 25vw"
+              className="pointer-events-none object-cover"
             />
           )}
         </div>
