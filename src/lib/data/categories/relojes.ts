@@ -15,7 +15,13 @@ Funciones:
 • Acero inoxidable de alta resistencia con acabado pulido espejo.
 • Cómoda y duradera correa de goma (silicona).
 
-Importante: Resistente solo a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.`, gallery: ["/images/Reloj1.jpg"]
+Importante: Resistente solo a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.`,
+      colors: [
+        { name: 'Negro', hex: '#111111', available: true, image: "/images/reloj-qcong-negro.jpg" },
+        { name: 'Blanco', hex: '#FFFFFF', available: true, image: "/images/reloj-qcong-blanco.jpg" },
+        { name: 'Marrón', hex: '#6B4226', available: true, image: "/images/reloj-qcong-marron.jpg" },
+      ],
+      gallery: ["/images/reloj-qcong-negro.jpg", "/images/reloj-qcong-blanco.jpg", "/images/reloj-qcong-marron.jpg"]
     },
     {
       id: 9, slug: "reloj-casio-enticer-mtp", name: "Reloj Casio Enticer MTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/casio-enticer-mtp.jpg", imagePosition: "center 65%", description: `Casio Enticer MTP 
