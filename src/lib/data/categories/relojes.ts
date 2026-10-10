@@ -4,7 +4,7 @@ export const relojesCategory: Category = {
   slug: "relojes",
   name: "Relojes",
   tagline: "El tiempo con estilo",
-  image: "/images/Reloj1.jpg",
+  image: "/images/reloj-qcong-negro.jpg",
   returnsPolicy: "Solo se ofrecen 10 días para devoluciones por defectos de fábrica.",
   products: [
     {
