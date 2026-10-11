@@ -8,7 +8,7 @@ export const relojesCategory: Category = {
   returnsPolicy: "Solo se ofrecen 10 días para devoluciones por defectos de fábrica.",
   products: [
     {
-      id: 8, slug: "reloj-qcong", name: "Reloj Qcong", price: "$15.00 USD", numericPrice: 15.00, image: "/images/Reloj1.jpg", description: `Sofisticado reloj de caballero con una marcada caja de forma cuadrada/cojín y un llamativo dial texturizado en tono marrón, blanco y negro. Su acabado metálico pulido le aporta una presencia moderna, versátil y de gran personalidad para cualquier ocasión.
+      id: 8, slug: "reloj-qcong", name: "Reloj Qcong", price: "$15.00 USD", numericPrice: 15.00, image: "/images/reloj-qcong-negro.jpg", description: `Sofisticado reloj de caballero con una marcada caja de forma cuadrada/cojín y un llamativo dial texturizado en tono marrón, blanco y negro. Su acabado metálico pulido le aporta una presencia moderna, versátil y de gran personalidad para cualquier ocasión.
 
 Funciones:
 • Cuenta con indicación precisa de hora y ventanilla de fecha.
