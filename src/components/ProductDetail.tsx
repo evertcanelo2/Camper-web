@@ -13,7 +13,9 @@ interface ProductDetailProps {
 
 /**
  * Une la galería (izquierda) con los detalles (derecha) para que compartan
- * el estado: al elegir un color, la galería cambia a la foto de ese color.
+ * el estado: al elegir un color/variante, la galería cambia a la foto de ese color,
+ * el nombre del producto cambia si la variante define `displayName`,
+ * y la descripción cambia si la variante define `description`.
  */
 export default function ProductDetail({ product, images, returnsPolicy }: ProductDetailProps) {
   // Color y foto inicial: el primer color disponible (o la primera foto de la galería)
@@ -21,6 +23,11 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
   const initialIndex = Math.max(0, initialColor?.image ? images.indexOf(initialColor.image) : 0);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const [selectedColor, setSelectedColor] = useState(initialColor?.name || '');
+
+  // Nombre y descripción activos según la variante seleccionada
+  const activeVariant = product.colors?.find((c) => c.name === selectedColor);
+  const displayName = activeVariant?.displayName ?? product.name;
+  const activeDescription = activeVariant?.description ?? product.description;
 
   // Al cambiar de foto (miniatura o flechas): si esa foto pertenece a un color, se selecciona ese color
   const handleIndexChange = (index: number) => {
@@ -34,7 +41,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
       {/* Left Column: Image Gallery */}
       <ImageGallery
         images={images}
-        productName={product.name}
+        productName={displayName}
         activeIndex={activeIndex}
         onIndexChange={handleIndexChange}
       />
@@ -42,10 +49,10 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
       {/* Right Column: Product Details */}
       <div className="lg:col-span-5 flex flex-col pt-2 md:pt-6">
         <h1
-          className="text-3xl md:text-5xl font-bold italic tracking-tight text-brand-denim mb-4"
+          className="text-3xl md:text-5xl font-bold italic tracking-tight text-brand-denim mb-4 transition-all duration-300"
           style={{ fontFamily: 'var(--font-poppins)' }}
         >
-          {product.name}
+          {displayName}
         </h1>
 
         <div className="text-xl md:text-2xl font-light text-brand-denim mb-2">
@@ -62,6 +69,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
           product={product}
           returnsPolicy={returnsPolicy}
           selectedColor={selectedColor}
+          activeDescription={activeDescription}
           onColorChange={(color) => {
             setSelectedColor(color.name);
             const idx = color.image ? images.indexOf(color.image) : -1;

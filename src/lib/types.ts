@@ -1,8 +1,12 @@
 export interface ProductColor {
   name: string;
+  /** Nombre visible del producto al seleccionar esta variante (opcional). Si se omite, se usa el nombre del producto. */
+  displayName?: string;
   hex?: string;
   available: boolean;
   image?: string;
+  /** Descripción específica de esta variante/fragancia (opcional). Si se omite, se usa la descripción del producto. */
+  description?: string;
 }
 
 export interface ProductSize {

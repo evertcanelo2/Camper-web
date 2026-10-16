@@ -11,11 +11,13 @@ interface ProductInteractionsProps {
   returnsPolicy?: string;
   /** Color seleccionado (lo controla ProductDetail para sincronizarlo con la galería). */
   selectedColor?: string;
+  /** Descripción activa: puede ser la de la variante o la del producto base. */
+  activeDescription?: string;
   /** Se llama al elegir un color (para cambiar la foto de la galería). */
   onColorChange?: (color: ProductColor) => void;
 }
 
-export default function ProductInteractions({ product, returnsPolicy, selectedColor: selectedColorProp, onColorChange }: ProductInteractionsProps) {
+export default function ProductInteractions({ product, returnsPolicy, selectedColor: selectedColorProp, activeDescription, onColorChange }: ProductInteractionsProps) {
   const { addToCart } = useCart();
 
   const initialColor = product?.colors?.find(c => c.available)?.name || '';
@@ -166,7 +168,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
       {/* Accordions */}
       <div className="border-t border-gray-200">
         {[
-          { id: 'desc', title: 'Descripción', content: product.description },
+          { id: 'desc', title: 'Descripción', content: activeDescription ?? product.description },
           { id: 'returns', title: 'Cambio y devoluciones', content: returnsPolicy || 'Ofrecemos 15 días para cambios de talla o color por defectos de fábrica. El producto debe estar en su estado original con etiquetas adjuntas y sin signos de uso.' },
           { id: 'shipping', title: 'Envíos y Entregas', content: 'Envíos a nivel nacional a través de MRW, Tealca y Zoom. Entregas personales y delivery express disponible para zonas céntricas.' },
         ].map(item => (
