@@ -9,8 +9,8 @@ export const perfumesCategory: Category = {
   products: [
     {
       id: 23,
-      slug: "linea-de-lattafa",
-      name: "Linea de Lattafa",
+      slug: "linea-lattafa",
+      name: "Linea Lattafa",
       price: "30.00 USD",
       numericPrice: 30.00,
       image: "/images/asad-perfume.jpg",
@@ -126,8 +126,8 @@ Ocasión de Uso:
     },
     {
       id: 24,
-      slug: "linea-de-odissey",
-      name: "Linea de Odissey",
+      slug: "linea-odissey",
+      name: "Linea Odissey",
       price: "Desde 35.00 USD",
       numericPrice: 35.00,
       image: "/images/odissey-homme-perfume.jpg",
