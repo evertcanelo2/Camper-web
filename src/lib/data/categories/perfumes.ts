@@ -13,13 +13,13 @@ export const perfumesCategory: Category = {
       name: "Linea de Lattafa",
       price: "30.00 USD",
       numericPrice: 30.00,
-      image: "/images/asad-perfume.png",
+      image: "/images/asad-perfume.jpg",
       colors: [
         {
           name: "Asad",
           displayName: "Lattafa Asad",
           available: true,
-          image: "/images/asad-perfume.png",
+          image: "/images/asad-perfume.jpg",
           description: `Asad - Lattafa Perfumes
 
 Descripción
@@ -43,7 +43,7 @@ Ocasión de Uso
           name: "Asad Elixir",
           displayName: "Lattafa Asad Elixir",
           available: true,
-          image: "/images/asad-elixir-perfume.png",
+          image: "/images/asad-elixir-perfume.jpg",
           description: `Asad Elixir - Lattafa Perfumes
 
 Descripción: 
@@ -64,7 +64,7 @@ Ocasión de Uso: Eventos nocturnos, citas especiales, reuniones formales o clima
           name: "Asad Zanzibar",
           displayName: "Lattafa Asad Zanzibar",
           available: true,
-          image: "/images/asad-zanzibar-perfume.png",
+          image: "/images/asad-zanzibar-perfume.jpg",
           description: `Asad Zanzibar - Lattafa Perfumes
 
 Descripción
@@ -86,7 +86,7 @@ Días cálidos, salidas al aire libre, eventos de día, vacaciones o tardes de v
           name: "Asad Bourbon",
           displayName: "Lattafa Asad Bourbon",
           available: true,
-          image: "/images/asad-bourbon-perfume.png",
+          image: "/images/asad-bourbon-perfume.jpg",
           description: `Descripción: 
 Asad Bourbon de Lattafa es una fragancia cálida, licorosa y envolvente que aporta una faceta rica y seductora a la saga Asad. Destaca por sus matices dulce-amaderados y ahumados, creando una presencia reconfortante, sofisticada y sumamente elegante.
 
@@ -105,7 +105,7 @@ Citas nocturnas, eventos elegantes, salidas especiales o clima frío/templado (o
           name: "Yara",
           displayName: "Lattafa Yara",
           available: true,
-          image: "/images/yara-perfume.png",
+          image: "/images/yara-perfume.jpg",
           description: `Descripción:
 Yara de Lattafa es una fragancia dulce, atalcada y sumamente femenina. Con un carácter cremoso y tropical que recuerda a un delicado postre de frutas y vainilla, es un aroma envolvente, encantador y lleno de delicadeza.
 
@@ -122,7 +122,7 @@ Ocasión de Uso:
  Momentos ideales: Uso diario, salidas casuales, citas románticas o eventos de día en cualquier estación del año.`,
         },
       ],
-      gallery: ["/images/asad-perfume.png", "/images/asad-elixir-perfume.png", "/images/asad-zanzibar-perfume.png", "/images/asad-bourbon-perfume.png", "/images/yara-perfume.png",],
+      gallery: ["/images/asad-perfume.jpg", "/images/asad-elixir-perfume.jpg", "/images/asad-zanzibar-perfume.jpg", "/images/asad-bourbon-perfume.jpg", "/images/yara-perfume.jpg",],
     },
     {
       id: 24,
