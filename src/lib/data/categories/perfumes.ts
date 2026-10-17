@@ -9,8 +9,8 @@ export const perfumesCategory: Category = {
   products: [
     {
       id: 23,
-      slug: "lattafa-asad",
-      name: "Lattafa Asad",
+      slug: "linea-de-lattafa",
+      name: "Linea de Lattafa",
       price: "30.00 USD",
       numericPrice: 30.00,
       image: "/images/asad-perfume.png",
@@ -28,7 +28,7 @@ Asad de Lattafa es una fragancia masculina cautivadora, elegante y llena de pers
 Notas Olfativas:
 
  -Notas de Salida: 
-OPimienta negra, piña y tabaco.
+OPimienta negra, piña y tabaco. 
 
  -Notas de Corazón: 
 Café, pachulí e iris.
@@ -123,6 +123,35 @@ Ocasión de Uso:
         },
       ],
       gallery: ["/images/asad-perfume.png", "/images/asad-elixir-perfume.png", "/images/asad-zanzibar-perfume.png", "/images/asad-bourbon-perfume.png", "/images/yara-perfume.png",],
+    },
+    {
+      id: 24,
+      slug: "linea-de-odissey",
+      name: "Linea de Odissey",
+      price: "Desde 35.00 USD",
+      numericPrice: 35.00,
+      image: "/images/odissey-homme-perfume.jpg",
+      colors: [
+        {
+          name: "Odyssey Homme",
+          displayName: "Odyssey Homme",
+          available: true,
+          price: "35.00 USD",
+          numericPrice: 35.00,
+          image: "/images/odissey-homme-perfume.jpg",
+          description: ``,
+        },
+        {
+          name: "Odyssey Mandarin Sky",
+          displayName: "Odyssey Mandarin Sky",
+          available: true,
+          price: "45.00 USD",
+          numericPrice: 45.00,
+          image: "/images/odyssey-mandarin-sky-perfume.jpg",
+          description: ``,
+        },
+      ],
+      gallery: ["/images/odissey-homme-perfume.jpg", "/images/odyssey-mandarin-sky-perfume.jpg",],
     },
   ],
 };

@@ -12,12 +12,13 @@ interface ProductInteractionsProps {
   /** Color seleccionado (lo controla ProductDetail para sincronizarlo con la galería). */
   selectedColor?: string;
   /** Descripción activa: puede ser la de la variante o la del producto base. */
+  activePrice?: string;
   activeDescription?: string;
   /** Se llama al elegir un color (para cambiar la foto de la galería). */
   onColorChange?: (color: ProductColor) => void;
 }
 
-export default function ProductInteractions({ product, returnsPolicy, selectedColor: selectedColorProp, activeDescription, onColorChange }: ProductInteractionsProps) {
+export default function ProductInteractions({ product, returnsPolicy, selectedColor: selectedColorProp, activePrice, activeDescription, onColorChange }: ProductInteractionsProps) {
   const { addToCart } = useCart();
 
   const initialColor = product?.colors?.find(c => c.available)?.name || '';
@@ -33,23 +34,25 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
   const [isAdded, setIsAdded] = useState(false);
 
   const handleAddToCart = useCallback(() => {
+    const activeVariant = product?.colors?.find((c) => c.name === selectedColor);
+
     addToCart({
       productId: product.id,
       name: product.name,
-      price: product.price,
-      numericPrice: product.numericPrice || 0,
-      image: product.colors?.find(c => c.name === selectedColor)?.image || product.image,
+      price: activePrice ?? activeVariant?.price ?? product.price,
+      numericPrice: activeVariant?.numericPrice ?? product.numericPrice ?? 0,
+      image: activeVariant?.image ?? product.image,
       color: selectedColor || 'N/A',
       size: selectedSize || 'N/A',
-      quantity
+      quantity,
     });
-    
+
     // Feedback animation
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
     }, 2000);
-  }, [addToCart, product, selectedColor, selectedSize, quantity]);
+  }, [addToCart, product, selectedColor, selectedSize, activePrice, quantity]);
 
   const getWhatsAppLink = () => {
     const text = `¡Hola! Quisiera comprar directamente este artículo:\n\n- ${quantity}x ${product.name} (Talla: ${selectedSize || 'N/A'}, Color: ${selectedColor || 'N/A'}) a ${product.price}\n\nTotal: $${((product.numericPrice || 0) * quantity).toFixed(2)} USD`;
@@ -71,7 +74,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
                 onClick={() => { setSelectedColor(color.name); onColorChange?.(color); }}
                 className={cn(
                   "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors inline-flex items-center gap-2",
-                  selectedColor === color.name 
+                  selectedColor === color.name
                     ? "border-brand-denim border-[1.5px] text-brand-denim font-medium bg-gray-50"
                     : "border-gray-200 text-brand-denim/70 hover:border-gray-300",
                   !color.available && "opacity-40 bg-gray-50 line-through decoration-gray-300"
@@ -103,7 +106,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
                 onClick={() => setSelectedSize(size.name)}
                 className={cn(
                   "min-w-[3rem] px-4 py-2 border text-sm rounded-md flex justify-center items-center bg-white appearance-none transition-colors",
-                  selectedSize === size.name 
+                  selectedSize === size.name
                     ? "border-brand-denim border-[1.5px] text-brand-denim font-medium bg-gray-50"
                     : "border-gray-200 text-brand-denim/70 hover:border-gray-300",
                   !size.available && "opacity-40 bg-gray-50 line-through decoration-gray-300"
@@ -120,7 +123,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
       <div className="mb-8">
         <h3 className="text-sm font-semibold text-brand-denim mb-3">Cantidad</h3>
         <div className="inline-flex items-center border border-gray-200 rounded-md bg-white">
-          <button 
+          <button
             type="button"
             onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
             className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none hover:bg-gray-50 transition-colors"
@@ -130,7 +133,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
           <div className="w-12 h-10 flex items-center justify-center text-sm font-medium border-x border-gray-100">
             {quantity}
           </div>
-          <button 
+          <button
             type="button"
             onClick={() => setQuantity(prev => prev + 1)}
             className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none hover:bg-gray-50 transition-colors"
@@ -142,20 +145,20 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
 
       {/* Actions */}
       <div className="flex flex-col gap-4 mb-12">
-        <button 
+        <button
           type="button"
           onClick={handleAddToCart}
           disabled={isAdded}
           className={cn(
             "w-full py-4 border font-medium text-xs tracking-widest uppercase rounded-md bg-white appearance-none transition-all duration-300",
-            isAdded 
+            isAdded
               ? "border-green-500 text-green-600 bg-green-50 shadow-sm"
               : "border-brand-denim text-brand-denim hover:bg-brand-denim hover:text-white"
           )}
         >
           {isAdded ? "¡Agregado a la cesta!" : "Agregar al carrito"}
         </button>
-        <a 
+        <a
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
@@ -173,7 +176,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
           { id: 'shipping', title: 'Envíos y Entregas', content: 'Envíos a nivel nacional a través de MRW, Tealca y Zoom. Entregas personales y delivery express disponible para zonas céntricas.' },
         ].map(item => (
           <div key={item.id} className="border-b border-gray-200">
-            <button 
+            <button
               type="button"
               onClick={() => setActiveAccordion(prev => prev === item.id ? null : item.id)}
               className="w-full py-5 flex justify-between items-center text-left bg-white appearance-none"

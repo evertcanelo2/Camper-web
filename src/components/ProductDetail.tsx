@@ -28,6 +28,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
   const activeVariant = product.colors?.find((c) => c.name === selectedColor);
   const displayName = activeVariant?.displayName ?? product.name;
   const activeDescription = activeVariant?.description ?? product.description;
+  const activePrice = activeVariant?.price ?? product.price;
 
   // Al cambiar de foto (miniatura o flechas): si esa foto pertenece a un color, se selecciona ese color
   const handleIndexChange = (index: number) => {
@@ -56,7 +57,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
         </h1>
 
         <div className="text-xl md:text-2xl font-light text-brand-denim mb-2">
-          {product.price}
+          {activePrice}
         </div>
 
         {product.subtitle && (

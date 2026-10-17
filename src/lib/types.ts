@@ -6,6 +6,8 @@ export interface ProductColor {
   available: boolean;
   image?: string;
   /** Descripción específica de esta variante/fragancia (opcional). Si se omite, se usa la descripción del producto. */
+  price?: string;
+  numericPrice?: number;
   description?: string;
 }
 
