@@ -195,8 +195,8 @@ Ocasión de Uso:
       name: "Amber Oud Gold Edition",
       price: "55.00 USD",
       numericPrice: 55.00,
+      badge: "unisex",
       image: "/images/amber-gold-perfume.jpg",
-      colors: []
     },
     {
       id: 26,
