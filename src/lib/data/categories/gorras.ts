@@ -16,12 +16,16 @@ export const gorrasCategory: Category = {
       image: "/images/nueva-gorra1.jpg",
       badge: "Popular",
       description: defaultDescription,
-      gallery: ["/images/nueva-gorra1.jpg"],
+      colors: [
+        { name: 'Verde', hex: '#3B4E43', available: true, image: "/images/nueva-gorra1.jpg" },
+        { name: 'Beige', hex: '#D4B895', available: true, image: "/images/nueva-gorra-6.jpg" },
+      ],
+      gallery: ["/images/nueva-gorra1.jpg", "/images/nueva-gorra-6.jpg",],
     },
     {
       id: 6,
       slug: "gorra-2",
-      name: "Gorra Signature Black",
+      name: "Top Quality Lackpard",
       price: "$20.00 USD",
       numericPrice: 20.00,
       image: "/images/nueva-gorra2.jpg",
@@ -33,7 +37,7 @@ export const gorrasCategory: Category = {
     {
       id: 7,
       slug: "gorra-3",
-      name: "Gorra Signature Black",
+      name: "Top Quality Barcelona",
       price: "$20.00 USD",
       numericPrice: 20.00,
       image: "/images/nueva-gorra3.jpg",
@@ -44,7 +48,7 @@ export const gorrasCategory: Category = {
     {
       id: 8,
       slug: "gorra-4",
-      name: "Gorra Signature Black",
+      name: "Top Quality HUGO",
       price: "$20.00 USD",
       numericPrice: 20.00,
       image: "/images/nueva-gorra4.jpg",
@@ -55,25 +59,13 @@ export const gorrasCategory: Category = {
     {
       id: 9,
       slug: "gorra-5",
-      name: "Gorra Signature Black",
+      name: "Top Quality Bass Pro Shop ",
       price: "$20.00 USD",
       numericPrice: 20.00,
       image: "/images/nueva-gorra5.jpg",
-      badge: "Popular",
       description: defaultDescription,
       gallery: ["/images/nueva-gorra5.jpg"],
     },
-    {
-      id: 10,
-      slug: "gorra-6",
-      name: "Gorra Signature Black",
-      price: "$20.00 USD",
-      numericPrice: 20.00,
-      image: "/images/nueva-gorra-6.jpg",
-      badge: "Popular",
-      description: defaultDescription,
-      gallery: ["/images/nueva-gorra-6.jpg"],
-    },
-  ]
+  ],
 
 };

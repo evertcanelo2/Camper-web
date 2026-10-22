@@ -70,6 +70,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
           product={product}
           returnsPolicy={returnsPolicy}
           selectedColor={selectedColor}
+          activePrice={activePrice}
           activeDescription={activeDescription}
           onColorChange={(color) => {
             setSelectedColor(color.name);

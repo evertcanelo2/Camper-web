@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import { categories } from '@/lib/collectionData';
 import Link from 'next/link';
 import Image from 'next/image';
-
 export default function CatalogoPage() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-clip">
