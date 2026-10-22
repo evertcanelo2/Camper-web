@@ -139,7 +139,23 @@ Ocasión de Uso:
           price: "35.00 USD",
           numericPrice: 35.00,
           image: "/images/odissey-homme-perfume.jpg",
-          description: ``,
+          description: `Odyssey Homme - Armaf
+
+Descripción:
+Odyssey Homme de Armaf es una fragancia oriental amaderada intensa, elegante y seductora. Con una combinación equilibrada de notas florales oscuras, especias cálidas y un fondo dulce ambarado, destaca por su aire de sofisticación, misterio y distinción.
+
+Notas Olfativas:
+
+ Notas de Salida: Vainilla y ámbar.
+
+ Notas de Corazón: Iris, especias y orientales.
+
+ Notas de Fondo: Vainilla, cuero y jazmín.
+
+Ocasión de Uso:
+
+ Momentos ideales: Eventos nocturnos, cenas formales, citas especiales o climas fríos y templados (otoño e invierno).
+`,
         },
         {
           name: "Odyssey Mandarin Sky",
@@ -148,7 +164,22 @@ Ocasión de Uso:
           price: "45.00 USD",
           numericPrice: 45.00,
           image: "/images/odyssey-mandarin-sky-perfume.jpg",
-          description: ``,
+          description: `Odyssey Mandarin Sky - Armaf
+
+Descripción: 
+Odyssey Mandarin Sky (Limited Edition) de Armaf es una fragancia vibrante, dulce y energizante. Con un perfil cítrico, gourmand y ligeramente acaramelado, destaca por su aura juvenil, moderna y sumamente adictiva. 
+
+Notas Olfativas:
+
+ Notas de Salida: Mandarina, naranja, azafrán y salvia.
+
+ Notas de Corazón: Caramelo, haba tonka y tagetes (flor de caléndula).
+
+ Notas de Fondo: Ambrosan, cedro y vetiver.
+
+Ocasión de Uso:
+
+ Momentos ideales: Salidas casuales, fiestas, citas, o uso diario en climas templados y fríos.`,
         },
         {
           name: "Odyssey Mandarin Sky Elixir",
