@@ -62,10 +62,9 @@ export const gorrasCategory: Category = {
       name: "Top Quality Bass Pro Shop ",
       price: "$20.00 USD",
       numericPrice: 20.00,
-      image: "/images/nueva-gorra5.jpg",
+      image: "/images/nueva-gorra-5.jpg",
       description: defaultDescription,
-      gallery: ["/images/nueva-gorra5.jpg"],
+      gallery: ["/images/nueva-gorra-5.jpg"],
     },
   ],
-
 };
