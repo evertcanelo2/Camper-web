@@ -9,6 +9,7 @@ export interface ProductColor {
   price?: string;
   numericPrice?: number;
   description?: string;
+  badge?: string;
 }
 
 export interface ProductSize {
@@ -30,6 +31,7 @@ export interface Product {
   colors?: ProductColor[];
   sizes?: ProductSize[];
   gallery?: string[];
+  available?: boolean;
 }
 
 export interface Category {

@@ -8,12 +8,13 @@ import Image from 'next/image';
 interface ImageGalleryProps {
   images: string[];
   productName: string;
+  isAvailable?: boolean; // <--- 1. Añadimos esta prop opcional
   /** Opcional: índice activo controlado desde fuera. */
   activeIndex?: number;
   onIndexChange?: (index: number) => void;
 }
 
-export default function ImageGallery({ images, productName, activeIndex, onIndexChange }: ImageGalleryProps) {
+export default function ImageGallery({ images, productName, isAvailable = true, activeIndex, onIndexChange }: ImageGalleryProps) {
   const [internalIndex, setInternalIndex] = useState(0);
   const activeImageIndex = activeIndex ?? internalIndex;
   const setActiveImageIndex = (next: number | ((prev: number) => number)) => {
@@ -25,15 +26,22 @@ export default function ImageGallery({ images, productName, activeIndex, onIndex
   return (
     <div className="lg:col-span-7 flex flex-col gap-4">
       <div className="relative aspect-[4/5] bg-[#F5F5F5] rounded-2xl overflow-hidden group">
-        <Image 
-          src={images[activeImageIndex]} 
-          alt={`${productName} view ${activeImageIndex + 1}`} 
+        <Image
+          src={images[activeImageIndex]}
+          alt={`${productName} view ${activeImageIndex + 1}`}
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
         />
-        
+
+        {/* 2. BADGE DE AGOTADO FLOTANTE */}
+        {!isAvailable && (
+          <span className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+            Agotado
+          </span>
+        )}
+
         {images.length > 1 && (
           <>
             <button
@@ -58,7 +66,7 @@ export default function ImageGallery({ images, productName, activeIndex, onIndex
       {images.length > 1 && (
         <div className="flex gap-4 overflow-x-auto pb-2">
           {images.map((img, idx) => (
-            <button 
+            <button
               key={idx}
               type="button"
               onClick={() => setActiveImageIndex(idx)}

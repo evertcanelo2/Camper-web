@@ -3,14 +3,14 @@ import { defaultColors, defaultDescription } from './common';
 
 export const gorrasCategory: Category = {
   slug: "gorras",
-  name: "Gorras Top Quality",
-  tagline: "Tu corona urbana",
+  name: "Gorras",
+  tagline: "Lleva la esencia Camper",
   image: "/images/nueva-gorra1.jpg",
   products: [
     {
       id: 5,
       slug: "gorra-america-verde",
-      name: "Gorra Signature Black",
+      name: "Top Quality Polemix",
       price: "$20.00 USD",
       numericPrice: 20.00,
       image: "/images/nueva-gorra1.jpg",

@@ -18,23 +18,34 @@ interface ProductInteractionsProps {
   onColorChange?: (color: ProductColor) => void;
 }
 
-export default function ProductInteractions({ product, returnsPolicy, selectedColor: selectedColorProp, activePrice, activeDescription, onColorChange }: ProductInteractionsProps) {
+export default function ProductInteractions({
+  product,
+  returnsPolicy,
+  selectedColor: selectedColorProp,
+  activePrice,
+  activeDescription,
+  onColorChange,
+}: ProductInteractionsProps) {
   const { addToCart } = useCart();
 
-  const initialColor = product?.colors?.find(c => c.available)?.name || '';
-  const initialSize = product?.sizes?.find(s => s.available)?.name || '';
+  const initialColor = product?.colors?.find((c) => c.available)?.name || product?.colors?.[0]?.name || '';
+  const initialSize = product?.sizes?.find((s) => s.available)?.name || '';
 
   const [localColor, setLocalColor] = useState(initialColor);
-  // Si el padre nos pasa el color, usamos ese; si no, el estado local
   const selectedColor = selectedColorProp ?? localColor;
   const setSelectedColor = setLocalColor;
+
   const [selectedSize, setSelectedSize] = useState(initialSize);
   const [quantity, setQuantity] = useState(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
   const [isAdded, setIsAdded] = useState(false);
 
+  // Obtener variante activa y su disponibilidad
+  const activeVariant = product?.colors?.find((c) => c.name === selectedColor);
+  const isSelectedAvailable = activeVariant ? activeVariant.available !== false : product.available !== false;
+
   const handleAddToCart = useCallback(() => {
-    const activeVariant = product?.colors?.find((c) => c.name === selectedColor);
+    if (!isSelectedAvailable) return;
 
     addToCart({
       productId: product.id,
@@ -52,10 +63,10 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
     setTimeout(() => {
       setIsAdded(false);
     }, 2000);
-  }, [addToCart, product, selectedColor, selectedSize, activePrice, quantity]);
+  }, [addToCart, product, selectedColor, selectedSize, activePrice, activeVariant, quantity, isSelectedAvailable]);
 
   const getWhatsAppLink = () => {
-    const text = `¡Hola! Quisiera comprar directamente este artículo:\n\n- ${quantity}x ${product.name} (Talla: ${selectedSize || 'N/A'}, Color: ${selectedColor || 'N/A'}) a ${product.price}\n\nTotal: $${((product.numericPrice || 0) * quantity).toFixed(2)} USD`;
+    const text = `¡Hola! Quisiera comprar directamente este artículo:\n\n${quantity}x ${product.name} (Talla: ${selectedSize || 'N/A'}, Color: ${selectedColor || 'N/A'}) a ${product.price}\n\nTotal: $${((product.numericPrice || 0) * quantity).toFixed(2)} USD`;
     return `https://wa.me/584145096447?text=${encodeURIComponent(text)}`;
   };
 
@@ -66,18 +77,20 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-brand-denim mb-3">Color</h3>
           <div className="flex flex-wrap gap-3">
-            {product.colors.map(color => (
+            {product.colors.map((color) => (
               <button
                 key={color.name}
                 type="button"
-                disabled={!color.available}
-                onClick={() => { setSelectedColor(color.name); onColorChange?.(color); }}
+                onClick={() => {
+                  setSelectedColor(color.name);
+                  onColorChange?.(color);
+                }}
                 className={cn(
-                  "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors inline-flex items-center gap-2",
+                  "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors inline-flex items-center gap-2 cursor-pointer",
                   selectedColor === color.name
                     ? "border-brand-denim border-[1.5px] text-brand-denim font-medium bg-gray-50"
                     : "border-gray-200 text-brand-denim/70 hover:border-gray-300",
-                  !color.available && "opacity-40 bg-gray-50 line-through decoration-gray-300"
+                  !color.available && "opacity-60 line-through decoration-gray-400"
                 )}
               >
                 {color.hex && (
@@ -98,7 +111,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-brand-denim mb-3">Size</h3>
           <div className="flex flex-wrap gap-3">
-            {product.sizes.map(size => (
+            {product.sizes.map((size) => (
               <button
                 key={size.name}
                 type="button"
@@ -125,7 +138,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
         <div className="inline-flex items-center border border-gray-200 rounded-md bg-white">
           <button
             type="button"
-            onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+            onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
             className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none hover:bg-gray-50 transition-colors"
           >
             <Minus className="w-4 h-4" />
@@ -135,7 +148,7 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
           </div>
           <button
             type="button"
-            onClick={() => setQuantity(prev => prev + 1)}
+            onClick={() => setQuantity((prev) => prev + 1)}
             className="w-10 h-10 flex items-center justify-center text-brand-denim/70 bg-white appearance-none hover:bg-gray-50 transition-colors"
           >
             <Plus className="w-4 h-4" />
@@ -148,24 +161,29 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
         <button
           type="button"
           onClick={handleAddToCart}
-          disabled={isAdded}
+          disabled={isAdded || !isSelectedAvailable}
           className={cn(
-            "w-full py-4 border font-medium text-xs tracking-widest uppercase rounded-md bg-white appearance-none transition-all duration-300",
-            isAdded
-              ? "border-green-500 text-green-600 bg-green-50 shadow-sm"
-              : "border-brand-denim text-brand-denim hover:bg-brand-denim hover:text-white"
+            "w-full py-4 border font-medium text-xs tracking-widest uppercase rounded-md appearance-none transition-all duration-300",
+            !isSelectedAvailable
+              ? "border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed"
+              : isAdded
+                ? "border-green-500 text-green-600 bg-green-50 shadow-sm"
+                : "border-brand-denim text-brand-denim bg-white hover:bg-brand-denim hover:text-white"
           )}
         >
-          {isAdded ? "¡Agregado a la cesta!" : "Agregar al carrito"}
+          {!isSelectedAvailable ? "Agotado" : isAdded ? "¡Agregado a la cesta!" : "Agregar al carrito"}
         </button>
-        <a
-          href={getWhatsAppLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full py-4 bg-brand-nylon text-white font-bold text-xs tracking-widest uppercase rounded-md shadow-sm text-center block"
-        >
-          Comprar
-        </a>
+
+        {isSelectedAvailable && (
+          <a
+            href={getWhatsAppLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-4 bg-brand-nylon text-white font-bold text-xs tracking-widest uppercase rounded-md shadow-sm text-center block"
+          >
+            Comprar
+          </a>
+        )}
       </div>
 
       {/* Accordions */}
@@ -174,11 +192,11 @@ export default function ProductInteractions({ product, returnsPolicy, selectedCo
           { id: 'desc', title: 'Descripción', content: activeDescription ?? product.description },
           { id: 'returns', title: 'Cambio y devoluciones', content: returnsPolicy || 'Ofrecemos 15 días para cambios de talla o color por defectos de fábrica. El producto debe estar en su estado original con etiquetas adjuntas y sin signos de uso.' },
           { id: 'shipping', title: 'Envíos y Entregas', content: 'Envíos a nivel nacional a través de MRW, Tealca y Zoom. Entregas personales y delivery express disponible para zonas céntricas.' },
-        ].map(item => (
+        ].map((item) => (
           <div key={item.id} className="border-b border-gray-200">
             <button
               type="button"
-              onClick={() => setActiveAccordion(prev => prev === item.id ? null : item.id)}
+              onClick={() => setActiveAccordion((prev) => (prev === item.id ? null : item.id))}
               className="w-full py-5 flex justify-between items-center text-left bg-white appearance-none"
             >
               <span className="text-sm font-semibold text-brand-denim">{item.title}</span>

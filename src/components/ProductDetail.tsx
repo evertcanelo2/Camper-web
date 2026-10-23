@@ -33,7 +33,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
   // Al cambiar de foto (miniatura o flechas): si esa foto pertenece a un color, se selecciona ese color
   const handleIndexChange = (index: number) => {
     setActiveIndex(index);
-    const color = product.colors?.find((c) => c.available && c.image === images[index]);
+    const color = product.colors?.find(c => c.image === images[index]);
     if (color) setSelectedColor(color.name);
   };
 
@@ -43,6 +43,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
       <ImageGallery
         images={images}
         productName={displayName}
+        isAvailable={product.available}
         activeIndex={activeIndex}
         onIndexChange={handleIndexChange}
       />

@@ -142,8 +142,9 @@ Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia lev
       colors: [
         { name: 'Negro', hex: '#111111', available: true, image: "/images/casio-enticer-mtp-1302.jpg" },
         { name: 'Blanco', hex: '#FFFFFF', available: true, image: "/images/casio-enticer-mtp-1302-blanco.jpg" },
+        { name: 'Rojo', hex: '#D90429', available: true, image: "/images/casio-enticer-mtp-1302-rojo.jpeg" },
       ],
-      gallery: ["/images/casio-enticer-mtp-1302.jpg", "/images/casio-enticer-mtp-1302-blanco.jpg"]
+      gallery: ["/images/casio-enticer-mtp-1302.jpg", "/images/casio-enticer-mtp-1302-blanco.jpg", "/images/casio-enticer-mtp-1302-rojo.jpeg"]
     },
   ],
 };
