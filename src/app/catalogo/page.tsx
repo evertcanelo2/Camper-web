@@ -9,23 +9,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function CatalogoPage() {
-  const sentinelRef = useRef<HTMLDivElement>(null);
-  const [isSticky, setIsSticky] = useState(false);
-
-  // Detecta cuando el sentinel (div invisible al final del hero) sale del viewport
-  // → en ese momento el nav "llegó a su punto" y se desvanece hacia su estado glass
-  useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsSticky(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-clip">
@@ -48,50 +31,6 @@ export default function CatalogoPage() {
           </motion.div>
         </div>
       </section>
-
-      {/* Sentinel: div invisible que marca el límite del hero */}
-      <div ref={sentinelRef} className="h-0" aria-hidden="true" />
-
-      {/* Category Quick-Nav — aparece flotando al hacer scroll */}
-      <div className="sticky top-[62px] z-40 px-4 md:px-10 lg:px-20 py-2.5 pointer-events-none">
-        <nav
-          aria-label="Navegación por categorías del catálogo"
-          className={`max-w-4xl mx-auto rounded-2xl pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-            isSticky
-              ? 'bg-black/30 border border-white/[0.08] shadow-[0_2px_24px_rgba(0,0,0,0.12)] opacity-100'
-              : 'bg-transparent border border-transparent shadow-none opacity-0 pointer-events-none'
-          }`}
-          style={{
-            backdropFilter: isSticky ? 'blur(24px) saturate(1.4)' : 'blur(0px)',
-            WebkitBackdropFilter: isSticky ? 'blur(24px) saturate(1.4)' : 'blur(0px)',
-          }}
-        >
-          <ul
-            role="list"
-            className="flex items-center justify-center gap-1 md:gap-2 overflow-x-auto px-4 py-2.5"
-            style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
-          >
-            {categories.map((category) => (
-              <li key={category.slug} className="flex-shrink-0">
-                <a
-                  href={`#${category.slug}`}
-                  aria-label={`Ir a la sección ${category.name}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const target = document.getElementById(category.slug);
-                    if (!target) return;
-                    const offset = target.getBoundingClientRect().top + window.pageYOffset - 110;
-                    window.scrollTo({ top: offset, behavior: 'smooth' });
-                  }}
-                  className="inline-block px-4 py-1.5 rounded-full text-[10px] md:text-[11px] font-light tracking-[0.18em] uppercase text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300"
-                >
-                  {category.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
 
       {/* Sections */}
       <div id="colecciones" className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-24 space-y-24 md:space-y-32">

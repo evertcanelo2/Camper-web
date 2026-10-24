@@ -41,7 +41,7 @@ export default function Navbar() {
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     let start: number | null = null;
-    
+
     // Easing function (easeInOutCubic) para un arranque y frenado suaves
     const ease = (t: number, b: number, c: number, d: number) => {
       t /= d / 2;
@@ -49,14 +49,14 @@ export default function Navbar() {
       t -= 2;
       return c / 2 * (t * t * t + 2) + b;
     };
-    
+
     const animation = (currentTime: number) => {
       if (start === null) start = currentTime;
       const timeElapsed = currentTime - start;
       const run = ease(timeElapsed, startPosition, distance, duration);
-      
+
       window.scrollTo(0, run);
-      
+
       if (timeElapsed < duration) {
         animationFrameId.current = requestAnimationFrame(animation);
       } else {
@@ -64,7 +64,7 @@ export default function Navbar() {
         animationFrameId.current = null;
       }
     };
-    
+
     animationFrameId.current = requestAnimationFrame(animation);
   };
 
@@ -74,29 +74,27 @@ export default function Navbar() {
   return (
     <>
       {/* Overlay oscuro semitransparente */}
-      <div 
-        className={`fixed inset-0 bg-black/40 transition-opacity duration-700 z-40 ${isOpen || isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
+      <div
+        className={`fixed inset-0 bg-black/40 transition-opacity duration-700 z-40 ${isOpen || isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => { setIsOpen(false); setIsCartOpen(false); }}
       />
 
-      <div className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-none ${
-        showGlass ? 'px-4 md:px-6 pt-3' : 'px-6 md:px-10 pt-4'
-      }`}>
-        <nav 
-          className={`pointer-events-auto text-white rounded-full px-5 md:px-8 w-full flex items-center justify-between relative transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-            showGlass 
-              ? 'max-w-4xl h-[52px] bg-black/30 shadow-[0_2px_24px_rgba(0,0,0,0.12)] border border-white/[0.08]' 
-              : 'max-w-5xl h-14 bg-transparent shadow-none border border-transparent'
-          }`}
+      <div className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-none ${showGlass ? 'px-4 md:px-6 pt-3' : 'px-6 md:px-10 pt-4'
+        }`}>
+        <nav
+          className={`pointer-events-auto text-white rounded-full px-5 md:px-8 w-full flex items-center justify-between relative transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${showGlass
+            ? 'max-w-4xl h-[52px] bg-black/30 shadow-[0_2px_24px_rgba(0,0,0,0.12)] border border-white/[0.08]'
+            : 'max-w-5xl h-14 bg-transparent shadow-none border border-transparent'
+            }`}
           style={{
             backdropFilter: showGlass ? 'blur(24px) saturate(1.4)' : 'blur(0px)',
             WebkitBackdropFilter: showGlass ? 'blur(24px) saturate(1.4)' : 'blur(0px)',
           }}
         >
-          
+
           {/* Mobile Menu */}
           <div className="md:hidden flex-1">
-            <button 
+            <button
               onClick={toggleMenu}
               className="text-white/90 hover:text-white transition-colors duration-300 outline-none p-2 -ml-2"
             >
@@ -106,18 +104,9 @@ export default function Navbar() {
 
           {/* Desktop Links - Left */}
           <div className="hidden md:flex flex-1 gap-6 text-[11px] font-light tracking-[0.2em] text-white/80">
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                setIsOpen(false);
-                
-                const target = document.getElementById('colecciones');
-                if (!target) return;
-                
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                smoothScrollTo(targetPosition);
-              }}
-              className="hover:text-white transition-colors duration-300 tracking-[0.2em] outline-none font-light"
+            <button
+              onClick={toggleMenu}
+              className="hover:text-white transition-colors duration-300 tracking-[0.2em] outline-none font-light cursor-pointer"
             >
               COLECCIONES
             </button>
@@ -125,81 +114,98 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex-shrink-0 flex justify-center px-6">
-            <Link 
-              href="/" 
-              className="flex items-center justify-center cursor-pointer" 
-              onClick={() => { 
-                setIsOpen(false); 
-                setIsCartOpen(false); 
+            <Link
+              href="/"
+              className="flex items-center justify-center cursor-pointer"
+              onClick={() => {
+                setIsOpen(false);
+                setIsCartOpen(false);
               }}
             >
-              <Image 
-                src="/images/CamperLogoWhite.png" 
-                alt="Camper Logo" 
-                width={160} 
-                height={60} 
-                className={`object-contain translate-y-1 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-                  showGlass ? 'scale-[0.88]' : 'scale-100'
-                }`}
+              <Image
+                src="/images/CamperLogoWhite.png"
+                alt="Camper Logo"
+                width={160}
+                height={60}
+                className={`object-contain translate-y-1 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${showGlass ? 'scale-[0.88]' : 'scale-100'
+                  }`}
               />
             </Link>
           </div>
 
           {/* Icons - Right */}
           <div className="flex-1 flex justify-end gap-5 items-center text-white/80">
-            <button 
+            <button
               onClick={toggleCart}
               className="hover:text-white transition-colors duration-300 relative outline-none p-2 -mr-2"
             >
               <ShoppingBag className="w-[18px] h-[18px]" strokeWidth={1.25} />
-              <span className={`absolute top-0 right-0 text-white text-[9px] font-medium w-[15px] h-[15px] rounded-full flex items-center justify-center transition-all duration-500 ${
-                showGlass 
-                  ? 'bg-white/15 backdrop-blur-sm border border-white/10' 
-                  : 'bg-white/20 border border-white/10'
-              }`}>
+              <span className={`absolute top-0 right-0 text-white text-[9px] font-medium w-[15px] h-[15px] rounded-full flex items-center justify-center transition-all duration-500 ${showGlass
+                ? 'bg-white/15 backdrop-blur-sm border border-white/10'
+                : 'bg-white/20 border border-white/10'
+                }`}>
                 {cartItems.length}
               </span>
             </button>
           </div>
 
-          {/* Mega Menu Desplegable (Colecciones) */}
-          <div 
-            className={`pointer-events-auto absolute top-full mt-2 left-0 w-full bg-neutral-900/95 backdrop-blur-md rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] border border-white/5 shadow-2xl ${isOpen ? 'max-h-[60vh] opacity-100' : 'max-h-0 opacity-0 border-transparent pointer-events-none'}`}
+          {/* Mega Menu Desplegable (Móvil y Escritorio) */}
+          <div
+            className={`pointer-events-auto absolute top-full mt-2 left-0 w-full bg-neutral-900/95 backdrop-blur-md rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] border border-white/5 shadow-2xl ${isOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0 border-transparent pointer-events-none'
+              }`}
           >
             <div className="p-6 flex flex-col items-center">
-              <button 
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsOpen(false);
-                  
-                  const target = document.getElementById('colecciones');
-                  if (!target) return;
-                  
-                  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                  smoothScrollTo(targetPosition);
-                }}
-                className={`text-white text-sm font-medium tracking-[0.2em] py-4 w-full text-center hover:text-brand-gold transition-all duration-700 ease-out ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: `${isOpen ? 150 : 0}ms` }}
-              >
-                COLECCIONES
-              </button>
+              <p className="text-white/40 text-[10px] font-medium tracking-[0.25em] uppercase mb-4 text-center">
+                Colecciones
+              </p>
+
+              <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-2 md:gap-6 w-full">
+                {[
+                  { name: 'FRANELAS', id: 'franelas' },
+                  { name: 'GORRAS', id: 'gorras' },
+                  { name: 'RELOJES', id: 'relojes' },
+                  { name: 'LENTES', id: 'lentes' },
+                  { name: 'LÍNEA DEPORTIVA', id: 'linea-deportiva' },
+                  { name: 'PERFUMES', id: 'perfumes' },
+                ].map((item, idx) => (
+                  <button
+                    key={item.name}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsOpen(false);
+
+                      const target = document.getElementById(item.id) || document.getElementById('colecciones');
+                      if (!target) return;
+
+                      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                      smoothScrollTo(targetPosition);
+                    }}
+                    className={`text-white text-xs font-light tracking-[0.2em] py-2.5 px-4 text-center hover:text-brand-gold transition-all duration-500 ease-out border-b border-white/5 md:border-none w-full md:w-auto cursor-pointer ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                      }`}
+                    style={{ transitionDelay: `${isOpen ? 80 + idx * 40 : 0}ms` }}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Cart Dropdown (Mini Carrito) */}
-          <div 
+          <div
             className={`pointer-events-auto absolute top-full mt-2 right-0 w-80 sm:w-96 bg-neutral-900/95 backdrop-blur-md rounded-3xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] border border-white/5 shadow-2xl origin-top-right ${isCartOpen ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 border-transparent pointer-events-none'}`}
           >
             <div className="p-6 flex flex-col gap-4">
               <h3 className="text-white font-medium text-sm border-b border-white/10 pb-4">Tu Carrito ({cartItems.length})</h3>
-              
+
               <div className="flex flex-col gap-4 overflow-y-auto max-h-[40vh] pr-2 custom-scrollbar">
                 {cartItems.length === 0 ? (
                   <p className="text-white/50 text-sm font-light text-center py-8">Tu carrito está vacío</p>
                 ) : (
                   cartItems.map((item, index) => (
-                    <div 
-                      key={item.id} 
+                    <div
+                      key={item.id}
                       className={`flex gap-4 items-center transform transition-all duration-700 ease-out ${isCartOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}
                       style={{ transitionDelay: `${isCartOpen ? index * 75 + 100 : 0}ms` }}
                     >
@@ -235,7 +241,7 @@ export default function Navbar() {
                     <span className="text-white/70">Subtotal</span>
                     <span className="text-brand-gold text-base">${subtotal.toFixed(2)} USD</span>
                   </div>
-                  <a 
+                  <a
                     href={`https://wa.me/584145096447?text=${encodeURIComponent(`¡Hola! Quisiera comprar los siguientes artículos:\n\n${cartItems.map(i => `- ${i.quantity}x ${i.name} (${i.size}, ${i.color}) a ${i.price}`).join('\n')}\n\nSubtotal: $${subtotal.toFixed(2)} USD`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
