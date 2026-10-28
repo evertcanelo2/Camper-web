@@ -165,7 +165,6 @@ export default function Navbar() {
                   { name: 'GORRAS', id: 'gorras' },
                   { name: 'RELOJES', id: 'relojes' },
                   { name: 'LENTES', id: 'lentes' },
-                  { name: 'LÍNEA DEPORTIVA', id: 'linea-deportiva' },
                   { name: 'PERFUMES', id: 'perfumes' },
                 ].map((item, idx) => (
                   <button

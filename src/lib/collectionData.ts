@@ -5,7 +5,6 @@ import { franelasCategory } from './data/categories/franelas';
 import { gorrasCategory } from './data/categories/gorras';
 import { relojesCategory } from './data/categories/relojes';
 import { lentesCategory } from './data/categories/lentes';
-import { lineaDeportivaCategory } from './data/categories/linea-deportiva';
 import { perfumesCategory } from './data/categories/perfumes';
 
 export const categories: Category[] = [
@@ -13,7 +12,6 @@ export const categories: Category[] = [
   gorrasCategory,
   relojesCategory,
   lentesCategory,
-  lineaDeportivaCategory,
   perfumesCategory,
 ];
 
