@@ -12,7 +12,7 @@ export const perfumesCategory: Category = {
       id: 23,
       slug: "linea-lattafa",
       name: "Linea Lattafa",
-      price: "Desde 30.00 USD",
+      price: "Desde 30.00 BCV",
       numericPrice: 30.00,
       image: "/images/asad-perfume.jpg",
       colors: [
@@ -126,7 +126,7 @@ Ocasión de Uso:
           name: "Art of Universe",
           displayName: "Lattafa Pride - Art of Universe",
           available: true,
-          price: "65.00 USD",
+          price: "65.00 BCV",
           numericPrice: 65.00,
           image: "/images/art-of-universe-perfume.jpg",
           description: `Art of Universe - Lattafa Pride
@@ -178,7 +178,7 @@ Ocasión de Uso:
       id: 24,
       slug: "linea-odissey",
       name: "Linea Odissey",
-      price: "Desde 35.00 USD",
+      price: "Desde 35.00 BCV",
       numericPrice: 35.00,
       image: "/images/odissey-homme-perfume.jpg",
       colors: [
@@ -186,7 +186,7 @@ Ocasión de Uso:
           name: "Odyssey Homme",
           displayName: "Odyssey Homme",
           available: true,
-          price: "35.00 USD",
+          price: "35.00 BCV",
           numericPrice: 35.00,
           image: "/images/odissey-homme-perfume.jpg",
           description: `Odyssey Homme - Armaf
@@ -211,7 +211,7 @@ Ocasión de Uso:
           name: "Odyssey Mandarin Sky",
           displayName: "Odyssey Mandarin Sky",
           available: true,
-          price: "45.00 USD",
+          price: "45.00 BCV",
           numericPrice: 45.00,
           image: "/images/odyssey-mandarin-sky-perfume.jpg",
           description: `Odyssey Mandarin Sky - Armaf
@@ -235,7 +235,7 @@ Ocasión de Uso:
           name: "Odyssey Mandarin Sky Elixir",
           displayName: "Odyssey Mandarin Sky Elixir",
           available: true,
-          price: "45.00 USD",
+          price: "45.00 BCV",
           numericPrice: 45.00,
           image: "/images/odyssey-mandarin-sky-elixir-perfume.jpg",
           description: `Odyssey Mandarin Sky Elixir - Armaf
@@ -261,7 +261,7 @@ Ocasión de Uso:
           name: "Odyssey Mega",
           displayName: "Odyssey Mega",
           available: true,
-          price: "35.00 USD",
+          price: "35.00 BCV",
           numericPrice: 35.00,
           image: "/images/odyssey-mega1-perfume.jpg",
           description: `Odyssey Mega - Armaf
@@ -287,7 +287,7 @@ Ocasión de Uso:
           name: "Odyssey Wild One Gold Edition",
           displayName: "Odyssey Wild One Gold Edition",
           available: true,
-          price: "35.00 USD",
+          price: "35.00 BCV",
           numericPrice: 35.00,
           image: "/images/odyssey-wild-one-perfume.jpg",
           description: `Odyssey Wild One Gold Edition - Armaf
@@ -313,7 +313,7 @@ Ocasión de Uso:
           name: "Odyssey Tyrant Special Edition",
           displayName: "Odyssey Tyrant Special Edition",
           available: true,
-          price: "35.00 USD",
+          price: "35.00 BCV",
           numericPrice: 35.00,
           image: "/images/odyssey-tyrant.jpg",
           description: `Odyssey Tyrant Special Edition - Armaf
@@ -342,7 +342,7 @@ Ocasión de Uso:
       id: 25,
       slug: "amber-gold",
       name: "Amber Oud Gold Edition",
-      price: "55.00 USD",
+      price: "55.00 BCV",
       numericPrice: 55.00,
       badge: "unisex",
       image: "/images/amber-gold-perfume.jpg",
@@ -369,7 +369,7 @@ Ocasión de Uso:
       id: 26,
       slug: "Linea-Afnan",
       name: "Linea Afnan",
-      price: "desde 40.00 USD",
+      price: "desde 40.00 BCV",
       numericPrice: 40.00,
       image: "/images/9pm-night-perfume.jpg",
       colors: [
@@ -377,7 +377,7 @@ Ocasión de Uso:
           name: "9 PM Night Out",
           displayName: "9 PM Night Out",
           available: true,
-          price: "45.00 USD",
+          price: "45.00 BCV",
           numericPrice: 45.00,
           image: "/images/9pm-night-perfume.jpg",
           description: ``,
@@ -386,7 +386,7 @@ Ocasión de Uso:
           name: "9 PM Rebel",
           displayName: "9 PM Rebel",
           available: true,
-          price: "40.00 USD",
+          price: "40.00 BCV",
           numericPrice: 40.00,
           image: "/images/9pm-rebel-perfume.jpg",
           description: ``,
@@ -395,7 +395,7 @@ Ocasión de Uso:
           name: "9 PM Elixir",
           displayName: "9 PM Elixir",
           available: true,
-          price: "40.00 USD",
+          price: "40.00 BCV",
           numericPrice: 40.00,
           image: "/images/9pm-elixir-perfume.jpg",
           description: ``,
@@ -404,7 +404,7 @@ Ocasión de Uso:
           name: "9 PM",
           displayName: "9 PM",
           available: true,
-          price: "40.00 USD",
+          price: "40.00 BCV",
           numericPrice: 40.00,
           image: "/images/9pm-perfume.jpg",
           description: ``,
@@ -416,7 +416,7 @@ Ocasión de Uso:
       id: 27,
       slug: "linea-versace",
       name: "Linea Versace",
-      price: "26.00 USD",
+      price: "26.00 BCV",
       numericPrice: 26.00,
       image: "/images/eros-versace.jpg",
       colors: [
@@ -424,7 +424,7 @@ Ocasión de Uso:
           name: "Eros",
           displayName: "Eros",
           available: true,
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/eros-versace.jpg",
           description: `Eros - Versace
@@ -450,7 +450,7 @@ Ocasión de Uso:
           name: "Eros Energy",
           displayName: "Eros Energy",
           available: true,
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/eros-energy-versace.jpg",
           description: `Eros Energy - Versace
@@ -479,7 +479,7 @@ Ocasión de Uso:
       id: 28,
       slug: "sauvage",
       name: "Sauvage",
-      price: "26.00 USD",
+      price: "26.00 BCV",
       numericPrice: 26.00,
       image: "/images/sauvage-perfume.jpg",
       description: `Sauvage Parfum - Dior
@@ -505,7 +505,7 @@ Ocasión de Uso:
       id: 29,
       slug: "king-solei",
       name: "King Soleil - Bharara Beauty",
-      price: "45.00 USD",
+      price: "45.00 BCV",
       numericPrice: 45.00,
       image: "/images/king-solei-perfume.jpg",
       description: `King Soleil - Bharara Beauty
@@ -532,7 +532,7 @@ Ocasión de Uso:
       id: 30,
       slug: "linea-jean-paul-gaultier",
       name: "Linea Jean Paul Gaultier",
-      price: "Desde 26.00 USD",
+      price: "Desde 26.00 BCV",
       numericPrice: 26.00,
       image: "/images/scandal-pour-perfume.jpg",
       colors: [
@@ -540,7 +540,7 @@ Ocasión de Uso:
           name: "Scandal Pour Homme",
           displayName: "Scandal Pour Homme",
           available: true,
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/scandal-pour-perfume.jpg",
           description: `Scandal Pour Homme - Jean Paul Gaultier
@@ -567,7 +567,7 @@ Ocasión de Uso:
           name: "Scandal Pour Homme Absolu",
           displayName: "Scandal Pour Homme Absolu",
           available: true,
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/scandal-pour-absolu-perfume.jpg",
           description: `Scandal Pour Homme Absolu - Jean Paul Gaultier
@@ -595,7 +595,7 @@ Ocasión de Uso:
           displayName: "Gaultier Divine Le Parfum",
           available: false,
           badge: "AGOTADO",
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/gaultier-divine-perfume.jpg",
           description: `Gaultier Divine Le Parfum - Jean Paul Gaultier Dama 
@@ -621,7 +621,7 @@ Ocasión de Uso:
           displayName: "Le Male Le Parfum",
           available: false,
           badge: "AGOTADO",
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/le-male-perfume.jpg",
           description: `Le Male Le Parfum - Jean Paul Gaultier
@@ -647,7 +647,7 @@ Ocasión de Uso:
           displayName: "Le Beau",
           available: false,
           badge: "AGOTADO",
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/le-beau-perfume.jpg",
           description: `Le Beau - Jean Paul Gaultier
@@ -675,7 +675,7 @@ Ocasión de Uso:
           displayName: "Le Beau Paradise Garden",
           available: false,
           badge: "AGOTADO",
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/le-beau-paradise.jpg",
           description: `Le Beau Paradise Garden - Jean Paul Gaultier
@@ -705,7 +705,7 @@ Ocasión de Uso:
       id: 31,
       slug: "1-million-rabanne",
       name: "1 Million - Rabanne",
-      price: "26.00 USD",
+      price: "26.00 BCV",
       numericPrice: 26.00,
       image: "/images/one-million.jpg",
       description: `1 Million - Rabanne
@@ -731,7 +731,7 @@ Ocasión de Uso:
       id: 32,
       slug: "carolina-herrera",
       name: "Linea Carolina Herrera",
-      price: "30.00 USD",
+      price: "30.00 BCV",
       numericPrice: 30.00,
       image: "/images/bad-boy-perfume1.jpg",
       description: ``,
@@ -740,7 +740,7 @@ Ocasión de Uso:
           name: "Bad Boy",
           displayName: "Bad Boy - Carolina Herrera",
           available: true,
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/bad-boy-perfume1.jpg",
           description: `Bad Boy - Carolina Herrera
@@ -767,7 +767,7 @@ Ocasión de Uso:
           name: "Good Girl",
           displayName: "Good Girl - Carolina Herrera",
           available: true,
-          price: "26.00 USD",
+          price: "26.00 BCV",
           numericPrice: 26.00,
           image: "/images/good-girl-perfume1.jpg",
           description: `Good Girl - Carolina Herrera

@@ -66,7 +66,13 @@ export default function ProductInteractions({
   }, [addToCart, product, selectedColor, selectedSize, activePrice, activeVariant, quantity, isSelectedAvailable]);
 
   const getWhatsAppLink = () => {
-    const text = `¡Hola! Quisiera comprar directamente este artículo:\n\n${quantity}x ${product.name} (Talla: ${selectedSize || 'N/A'}, Color: ${selectedColor || 'N/A'}) a ${product.price}\n\nTotal: $${((product.numericPrice || 0) * quantity).toFixed(2)} USD`;
+    const unitPrice = activeVariant?.numericPrice ?? product.numericPrice ?? 0;
+    const itemTotal = unitPrice * quantity;
+    const formattedItemPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ USD` : `${itemTotal.toFixed(2)}$ USD`;
+    const colorPart = selectedColor && selectedColor !== 'N/A' ? ` color ${selectedColor}` : '';
+    const sizePart = selectedSize && selectedSize !== 'N/A' ? ` talla ${selectedSize}` : '';
+
+    const text = `¡Hola! Quisiera comprar directamente este artículo:\n\nDelivery:\nEnvío nacional:\nEntrega Personal:\n\nMi pedido:\n\n${quantity} ${product.name}${colorPart}${sizePart} ${formattedItemPrice}\n\nTotal: ${formattedItemPrice} o al cambio a la tasa del Banco Central de Venezuela`;
     return `https://wa.me/584145096447?text=${encodeURIComponent(text)}`;
   };
 

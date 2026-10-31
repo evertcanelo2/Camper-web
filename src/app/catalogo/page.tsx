@@ -58,7 +58,8 @@ export default function CatalogoPage() {
                 <Link
                   href={`/producto/${product.slug}`}
                   key={product.id}
-                  className="group cursor-pointer outline-none"
+                  id={`producto-${product.slug}`}
+                  className="group cursor-pointer outline-none scroll-mt-32"
                 >
                   <motion.div
                     initial={{ opacity: 1, y: 0 }}

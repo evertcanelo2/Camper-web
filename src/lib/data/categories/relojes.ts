@@ -8,7 +8,7 @@ export const relojesCategory: Category = {
   returnsPolicy: "Solo se ofrecen 10 días para devoluciones por defectos de fábrica.",
   products: [
     {
-      id: 8, slug: "reloj-qcong", name: "Reloj Qcong", price: "$15.00 USD", numericPrice: 15.00, image: "/images/reloj-qcong-negro.jpg", description: `Sofisticado reloj de caballero con una marcada caja de forma cuadrada/cojín y un llamativo dial texturizado en tono marrón, blanco y negro. Su acabado metálico pulido le aporta una presencia moderna, versátil y de gran personalidad para cualquier ocasión.
+      id: 8, slug: "reloj-qcong", name: "Reloj Qcong", price: "$15.00 BCV", numericPrice: 15.00, image: "/images/reloj-qcong-negro.jpg", description: `Sofisticado reloj de caballero con una marcada caja de forma cuadrada/cojín y un llamativo dial texturizado en tono marrón, blanco y negro. Su acabado metálico pulido le aporta una presencia moderna, versátil y de gran personalidad para cualquier ocasión.
 
 Funciones:
 • Cuenta con indicación precisa de hora y ventanilla de fecha.
@@ -24,7 +24,7 @@ Importante: Resistente solo a salpicaduras accidentales (lavado de manos o lluvi
       gallery: ["/images/reloj-qcong-negro.jpg", "/images/reloj-qcong-blanco.jpg", "/images/reloj-qcong-marron.jpg"]
     },
     {
-      id: 9, slug: "reloj-casio-enticer-mtp", name: "Reloj Casio Enticer MTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/casio-enticer-mtp.jpg", imagePosition: "center 65%", description: `Casio Enticer MTP 
+      id: 9, slug: "reloj-casio-enticer-mtp", name: "Reloj Casio Enticer MTP", price: "$15.00 BCV", numericPrice: 15.00, image: "/images/casio-enticer-mtp.jpg", imagePosition: "center 65%", description: `Casio Enticer MTP 
 
 Clásico, elegante y atemporal. Cuenta con una sofisticada caja redonda de acero inoxidable y un limpio dial con finos marcadores e índices plateados, ideal para un look formal y versátil en el día a día.
 
@@ -46,7 +46,7 @@ Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia lev
       gallery: ["/images/casio-enticer-mtp-blanco.jpg", "/images/casio-enticer-mtp.jpg", "/images/casio-enticer-mtp-marron.jpg"]
     },
     {
-      id: 10, slug: "reloj-casio-vintage-ltp", name: "Reloj Casio Vintage Cuadrado LTP", price: "$15.00 USD", numericPrice: 15.00, image: "/images/casio-vintage-ltp.jpg", description: `Reloj Casio Vintage Cuadrado de Caballero LTP 
+      id: 10, slug: "reloj-casio-vintage-ltp", name: "Reloj Casio Vintage Cuadrado LTP", price: "$15.00 BCV", numericPrice: 15.00, image: "/images/casio-vintage-ltp.jpg", description: `Reloj Casio Vintage Cuadrado de Caballero LTP 
 
 Moderno, retro y con mucha personalidad. Presenta una llamativa caja de forma cuadrada/cojín con esquinas redondeadas y un elegante dial
 ideal para destacar con un estilo clásico y urbano a la vez.
@@ -72,8 +72,8 @@ Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos 
       id: 20,
       slug: "reloj-caterpillar",
       name: "Reloj Caterpillar",
-      price: "$15.00 USD",
-      numericPrice: 15.00,
+      price: "$14.00 BCV",
+      numericPrice: 14.00,
       image: "/images/caterpillar-azul-oscuro.jpg",
       description: `Reloj Caterpillar (CAT) para Caballero
 
@@ -99,8 +99,8 @@ Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos 
       id: 21,
       slug: "reloj-casio",
       name: "Reloj Casio",
-      price: "$15.00 USD",
-      numericPrice: 15.00,
+      price: "$13.50 BCV",
+      numericPrice: 13.50,
       image: "/images/casio.jpg",
       description: `Reloj Casio 
 
@@ -120,7 +120,7 @@ Importante: Resistente solo a salpicaduras accidentales (lavado de manos o lluvi
       id: 22,
       slug: "reloj-casio-enticer-mtp-1302",
       name: "Reloj Casio Enticer MTP-1302",
-      price: "$15.00 USD",
+      price: "$15.00 BCV",
       numericPrice: 15.00,
       image: "/images/casio-enticer-mtp-1302.jpg",
       description: `Casio Enticer MTP-1302
@@ -145,6 +145,48 @@ Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia lev
         { name: 'Rojo', hex: '#D90429', available: true, image: "/images/casio-enticer-mtp-1302-rojo.jpeg" },
       ],
       gallery: ["/images/casio-enticer-mtp-1302.jpg", "/images/casio-enticer-mtp-1302-blanco.jpg", "/images/casio-enticer-mtp-1302-rojo.jpeg"]
+    },
+    {
+      id: 33,
+      slug: "reloj-casio-ltp-esferas-lunares",
+      name: "Reloj Casio LTP Esferas Lunares",
+      price: "$13.50 BCV",
+      numericPrice: 13.50,
+      image: "/images/reloj-casio-esferas-negras.jpeg",
+      description: `Reloj Casio LTP esferas lunares Cuadrado caballero 
+
+Moderno, retro y con mucha personalidad. Presenta una llamativa caja de forma cuadrada/cojín con esquinas redondeadas y un elegante dial
+ideal para destacar con un estilo clásico y urbano a la vez.
+
+Funciones: Cuenta con indicación precisa de hora y ventanilla de fecha 
+
+Caja: Fabricada en acero inoxidable de alta calidad con un acabado brillante y pulido.
+
+Correa metálica de eslabones ajustables 
+
+Medida de la caja del reloj 4cm de ancho x 4cm de largo 
+
+Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.`,
+      colors: [
+        { name: 'Negro', hex: '#111111', available: true, image: "/images/reloj-casio-esferas-negras.jpeg" },
+        { name: 'Blanco', hex: '#FFFFFF', available: true, image: "/images/reloj-casio-esferas-blanca.jpeg" },
+      ],
+      gallery: ["/images/reloj-casio-esferas-negras.jpeg", "/images/reloj-casio-esferas-blanca.jpeg",]
+    },
+    {
+      id: 36,
+      slug: "rolex-submariner",
+      name: "Reloj Rolex Submariner",
+      price: "$30.00 BCV",
+      numericPrice: 30.00,
+      image: "/images/reloj-rolex-submariner.jpeg",
+      description: ``,
+      colors: [
+        { name: 'Dorado', hex: '#D4AF37', available: true, image: "/images/reloj-rolex-submariner.jpeg" },
+        { name: 'Negro', hex: '#111111', available: true, image: "/images/reloj-rolex-submariner-negro.jpeg" },
+        { name: 'Blanco', hex: '#FFFFFF', available: true, image: "/images/reloj-rolex-submariner-blanco.jpg" },
+      ],
+      gallery: ["/images/reloj-rolex-submariner.jpeg", "/images/reloj-rolex-submariner-negro.jpeg", "/images/reloj-rolex-submariner-blanco.jpg"]
     },
   ],
 };

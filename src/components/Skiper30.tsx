@@ -13,12 +13,12 @@ const images = [
   "/images/2.jpg",
   "/images/4.jpg",
   "/images/6.jpg",
-  "/images/Franela4.png",
-  "/images/nueva-gorra1.jpg",
+  "/images/7-para-pc.jpeg",
+  "/images/8-para-pc.jpg",
   "/images/Franela2.png",
   "/images/Perfume2.jpg",
-  "/images/FranelSinFondo.png",
-  "/images/Franela4.png",
+  "/images/7-para-pc.jpeg",
+  "/images/7-para-pc.jpeg",
 ];
 
 const Skiper30 = () => {

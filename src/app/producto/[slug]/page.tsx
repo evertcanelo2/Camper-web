@@ -42,9 +42,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     redirect('/catalogo');
   }
 
-  // Categoría del producto: el botón "Volver" regresa a su sección del catálogo
+  // El botón "Volver" regresa a la tarjeta exacta del producto en el catálogo
   const category = getCategoryByProductSlug(slug);
-  const backHref = category ? `/catalogo#${category.slug}` : '/catalogo';
+  const backHref = category ? `/catalogo#producto-${product.slug}` : '/catalogo';
 
   const images = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
 

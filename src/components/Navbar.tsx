@@ -238,10 +238,20 @@ export default function Navbar() {
                 <div className={`mt-2 pt-4 border-t border-white/10 flex flex-col gap-4 transition-opacity duration-700 ${isCartOpen ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: `${isCartOpen ? 300 : 0}ms` }}>
                   <div className="flex justify-between items-center text-sm font-medium text-white">
                     <span className="text-white/70">Subtotal</span>
-                    <span className="text-brand-gold text-base">${subtotal.toFixed(2)} USD</span>
+                    <span className="text-brand-gold text-base">${subtotal.toFixed(2)} BCV</span>
                   </div>
                   <a
-                    href={`https://wa.me/584145096447?text=${encodeURIComponent(`¡Hola! Quisiera comprar los siguientes artículos:\n\n${cartItems.map(i => `- ${i.quantity}x ${i.name} (${i.size}, ${i.color}) a ${i.price}`).join('\n')}\n\nSubtotal: $${subtotal.toFixed(2)} USD`)}`}
+                    href={`https://wa.me/584145096447?text=${encodeURIComponent(
+                      `¡Hola! Quisiera comprar directamente este artículo:\n\nDelivery:\nEnvío nacional:\nEntrega Personal:\n\nMi pedido:\n\n${cartItems
+                        .map((i) => {
+                          const itemTotal = i.numericPrice * i.quantity;
+                          const formattedPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ USD` : `${itemTotal.toFixed(2)}$ USD`;
+                          const colorPart = i.color && i.color !== 'N/A' ? ` color ${i.color}` : '';
+                          const sizePart = i.size && i.size !== 'N/A' ? ` talla ${i.size}` : '';
+                          return `${i.quantity} ${i.name}${colorPart}${sizePart} ${formattedPrice}`;
+                        })
+                        .join('\n\n')}\n\nTotal: ${Number.isInteger(subtotal) ? subtotal : subtotal.toFixed(2)}$ USD o al cambio a la tasa del Banco Central de Venezuela`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full text-center bg-white hover:bg-gray-200 text-black font-bold text-xs tracking-widest uppercase py-3 rounded-xl transition-colors cursor-pointer touch-manipulation"
