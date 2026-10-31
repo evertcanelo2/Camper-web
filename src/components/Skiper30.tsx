@@ -14,7 +14,7 @@ const images = [
   "/images/4.jpg",
   "/images/6.jpg",
   "/images/Franela4.png",
-  "/images/Gorra1.jpg",
+  "/images/nueva-gorra1.jpg",
   "/images/Franela2.png",
   "/images/Perfume2.jpg",
   "/images/FranelSinFondo.png",
