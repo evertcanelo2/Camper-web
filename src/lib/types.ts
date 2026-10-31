@@ -12,12 +12,28 @@ export interface ProductColor {
   badge?: string;
 }
 
-export interface ProductSize {
+export interface ProductSizeObject {
   name: string;
   available: boolean;
 }
 
+// Soporta tanto el objeto { name: 'M', available: true } como un string directo 'M'
+export type ProductSize = ProductSizeObject | string;
+
+// Define específicamente cómo es una variante de color (ej. la franela negra)
 export interface ProductVariant {
+  color: string;
+  sizes: ProductSize[];
+  gallery: string[];
+  price?: string;
+  numericPrice?: number;
+  description?: string;
+  name?: string;
+  colors?: ProductColor[];
+}
+
+// INTERFAZ PRINCIPAL: Define cómo es un Producto completo
+export interface Product {
   id: number;
   slug: string;
   name: string;
@@ -28,10 +44,12 @@ export interface ProductVariant {
   badge?: string;
   subtitle?: string;
   description?: string;
+  available?: boolean;
+  // Estructura clásica
   colors?: ProductColor[];
   sizes?: ProductSize[];
   gallery?: string[];
-  available?: boolean;
+  // Estructura nueva por variantes (Franelas)
   variants?: ProductVariant[];
 }
 
@@ -40,6 +58,6 @@ export interface Category {
   name: string;
   tagline: string;
   image: string;
-  products: ProductVariant[];
+  products: Product[];
   returnsPolicy?: string;
 }
