@@ -20,16 +20,21 @@ export interface ProductSizeObject {
 // Soporta tanto el objeto { name: 'M', available: true } como un string directo 'M'
 export type ProductSize = ProductSizeObject | string;
 
-// Define específicamente cómo es una variante de color (ej. la franela negra)
+/** Convierte cualquier talla (string u objeto) a { name, available }. */
+export const normalizeSize = (size: ProductSize): ProductSizeObject =>
+  typeof size === 'string' ? { name: size, available: true } : size;
+
+// Variante de color con sus propias fotos y tallas (ej. la franela negra)
 export interface ProductVariant {
   color: string;
+  hex?: string;
+  available?: boolean;
   sizes: ProductSize[];
   gallery: string[];
   price?: string;
   numericPrice?: number;
   description?: string;
   name?: string;
-  colors?: ProductColor[];
 }
 
 // INTERFAZ PRINCIPAL: Define cómo es un Producto completo

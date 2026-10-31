@@ -4,15 +4,15 @@ import { useState, useCallback, useEffect } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
-import type { Product, ProductColor } from '@/lib/types'; // <-- Importación corregida
+import { normalizeSize, type Product } from '@/lib/types';
 
 interface ProductInteractionsProps {
-  product: Product; // <-- Usamos Product aquí
+  product: Product;
   returnsPolicy?: string;
   selectedColor?: string;
   activePrice?: string;
   activeDescription?: string;
-  onColorChange?: (color: any) => void;
+  onColorChange?: (colorName: string) => void;
 }
 
 export default function ProductInteractions({
@@ -28,7 +28,9 @@ export default function ProductInteractions({
   // 1. Determinar estados iniciales adaptados a "variants" o "colors"
   const initialVariant = product.variants?.[0];
   const initialColor = initialVariant?.color || product?.colors?.find((c) => c.available)?.name || product?.colors?.[0]?.name || '';
-  const initialSize = initialVariant?.sizes?.[0] || product?.sizes?.find((s) => s.available)?.name || '';
+  const firstAvailableSize = (sizes?: Parameters<typeof normalizeSize>[0][]) =>
+    sizes?.map(normalizeSize).find((s) => s.available)?.name ?? '';
+  const initialSize = firstAvailableSize(initialVariant?.sizes ?? product.sizes);
 
   const [localColor, setLocalColor] = useState(initialColor);
   const selectedColor = selectedColorProp ?? localColor;
@@ -45,24 +47,23 @@ export default function ProductInteractions({
 
   // Disponibilidad
   const isSelectedAvailable = activeNewVariant
-    ? true
+    ? activeNewVariant.available !== false
     : (activeOldVariant ? activeOldVariant.available !== false : product.available !== false);
 
   // 3. Normalizar opciones para renderizar
   const colorOptions = product.variants
-    ? product.variants.map((v) => ({ name: v.color, available: true, hex: '' }))
+    ? product.variants.map((v) => ({ name: v.color, available: v.available !== false, hex: v.hex ?? '' }))
     : (product.colors || []);
 
-  const sizeOptions = activeNewVariant
-    ? activeNewVariant.sizes.map((s) => ({ name: s, available: true }))
-    : (product.sizes || []);
+  const sizeOptions = (activeNewVariant ? activeNewVariant.sizes : product.sizes || []).map(normalizeSize);
 
-  // 4. Efecto: Si cambia el color y el nuevo color tiene tallas distintas, resetear la talla a la primera disponible
+  // 4. Si el nuevo color no tiene la talla elegida, pasar a la primera disponible
   useEffect(() => {
-    if (activeNewVariant && !activeNewVariant.sizes.includes(selectedSize)) {
-      setSelectedSize(activeNewVariant.sizes[0]);
+    if (activeNewVariant && !sizeOptions.some((s) => s.name === selectedSize && s.available)) {
+      setSelectedSize(sizeOptions.find((s) => s.available)?.name ?? '');
     }
-  }, [selectedColor, activeNewVariant, selectedSize]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedColor]);
 
   const handleAddToCart = useCallback(() => {
     if (!isSelectedAvailable) return;
@@ -71,7 +72,7 @@ export default function ProductInteractions({
       productId: product.id,
       name: product.name,
       price: activePrice ?? activeNewVariant?.price ?? product.price,
-      numericPrice: activeNewVariant?.numericPrice ?? product.numericPrice ?? 0,
+      numericPrice: activeNewVariant?.numericPrice ?? activeOldVariant?.numericPrice ?? product.numericPrice ?? 0,
       image: activeNewVariant?.gallery?.[0] ?? activeOldVariant?.image ?? product.image,
       color: selectedColor || 'N/A',
       size: selectedSize || 'N/A',
@@ -85,9 +86,9 @@ export default function ProductInteractions({
   }, [addToCart, product, selectedColor, selectedSize, activePrice, activeNewVariant, activeOldVariant, quantity, isSelectedAvailable]);
 
   const getWhatsAppLink = () => {
-    const unitPrice = activeNewVariant?.numericPrice ?? product.numericPrice ?? 0;
+    const unitPrice = activeNewVariant?.numericPrice ?? activeOldVariant?.numericPrice ?? product.numericPrice ?? 0;
     const itemTotal = unitPrice * quantity;
-    const formattedItemPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ USD` : `${itemTotal.toFixed(2)}$ USD`;
+    const formattedItemPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ BCV` : `${itemTotal.toFixed(2)}$ BCV`;
     const colorPart = selectedColor && selectedColor !== 'N/A' ? ` color ${selectedColor}` : '';
     const sizePart = selectedSize && selectedSize !== 'N/A' ? ` talla ${selectedSize}` : '';
 
@@ -108,7 +109,7 @@ export default function ProductInteractions({
                 type="button"
                 onClick={() => {
                   setSelectedColor(color.name);
-                  onColorChange?.(color);
+                  onColorChange?.(color.name);
                 }}
                 className={cn(
                   "px-4 py-2 border text-sm rounded-md bg-white appearance-none transition-colors inline-flex items-center gap-2 cursor-pointer",
@@ -136,7 +137,7 @@ export default function ProductInteractions({
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-brand-denim mb-3">Size</h3>
           <div className="flex flex-wrap gap-3">
-            {sizeOptions.map((size: any) => (
+            {sizeOptions.map((size) => (
               <button
                 key={size.name}
                 type="button"
