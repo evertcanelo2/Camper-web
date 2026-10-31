@@ -5,12 +5,14 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const images = [
-  "/images/Reloj1.jpg",
-  "/images/Modelo1.jpg",
-  "/images/Franela4.png",
-  "/images/Pefume1.jpg",
-  "H",
-  "/images/Franela3.png",
+  // Columna 1 (frames 1, 3, 5)
+  "/images/1.jpg",
+  "/images/3.jpg",
+  "/images/5.jpg",
+  // Columna 2 (frames 2, 4, 6)
+  "/images/2.jpg",
+  "/images/4.jpg",
+  "/images/6.jpg",
   "/images/Franela4.png",
   "/images/Gorra1.jpg",
   "/images/Franela2.png",

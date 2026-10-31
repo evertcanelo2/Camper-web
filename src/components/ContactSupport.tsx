@@ -52,11 +52,7 @@ export default function ContactSupport() {
       ),
       url: 'https://www.tiktok.com/@camper.ve',
     },
-    {
-      name: 'Correo',
-      icon: <Mail className="w-5 h-5" />,
-      url: 'mailto:soporte@camper.com.ve',
-    }
+
   ];
 
   return (
