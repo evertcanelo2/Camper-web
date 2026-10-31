@@ -9,8 +9,8 @@ export const franelasCategory: Category = {
   products: [
     {
       id: 1,
-      slug: "franela-esencial-blanca",
-      name: "Franela Esencial Blanca",
+      slug: "overzise-serene-scape",
+      name: "Oversize Serene Scape ",
       price: "$29.00 BCV",
       numericPrice: 29.00,
       image: "/images/oversize-serene-scape.jpeg",
