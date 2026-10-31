@@ -18,7 +18,7 @@ export const franelasCategory: Category = {
       subtitle: "Inventario en el camino",
       variants: [
         {
-          color: "Azul Oscuro",
+          color: "Azul ",
           sizes: ["L"],
           gallery: ["/images/oversize-serene-scape-3.jpg", "/images/oversize-serene-scape.jpeg", "/images/overzise-serene-4.jpg"]
         },
