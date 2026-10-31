@@ -1,54 +1,54 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ImageGallery from '@/components/ImageGallery';
 import ProductInteractions from '@/components/ProductInteractions';
-import type { Product } from '@/lib/collectionData';
+import type { ProductVariant } from '@/lib/types';
 
 interface ProductDetailProps {
-  product: Product;
+  product: ProductVariant;
   images: string[];
   returnsPolicy?: string;
 }
 
-/**
- * Une la galería (izquierda) con los detalles (derecha) para que compartan
- * el estado: al elegir un color/variante, la galería cambia a la foto de ese color,
- * el nombre del producto cambia si la variante define `displayName`,
- * y la descripción cambia si la variante define `description`.
- */
 export default function ProductDetail({ product, images, returnsPolicy }: ProductDetailProps) {
-  // Color y foto inicial: el primer color disponible (o la primera foto de la galería)
-  const initialColor = product.colors?.find((c) => c.available);
-  const initialIndex = Math.max(0, initialColor?.image ? images.indexOf(initialColor.image) : 0);
-  const [activeIndex, setActiveIndex] = useState(initialIndex);
-  const [selectedColor, setSelectedColor] = useState(initialColor?.name || '');
+  // 1. Detectar si el producto usa la nueva estructura de variantes (variants) o la vieja (colors)
+  const initialVariant = product.variants?.[0] || null;
+  const fallbackColor = product.colors?.find((c) => c.available);
 
-  // Nombre y descripción activos según la variante seleccionada
-  const activeVariant = product.colors?.find((c) => c.name === selectedColor);
-  const displayName = activeVariant?.displayName ?? product.name;
-  const activeDescription = activeVariant?.description ?? product.description;
+  // 2. Estados principales
+  const [activeVariant, setActiveVariant] = useState(initialVariant);
+  const [selectedColor, setSelectedColor] = useState(initialVariant?.colors || fallbackColor?.name || '');
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // 3. Variables dinámicas basadas en la variante activa (o fallback a producto normal)
+  const displayImages = activeVariant ? activeVariant.gallery : images;
+  const displayName = activeVariant?.name ?? product.name;
   const activePrice = activeVariant?.price ?? product.price;
+  const activeDescription = activeVariant?.description ?? product.description;
 
-  // Al cambiar de foto (miniatura o flechas): si esa foto pertenece a un color, se selecciona ese color
+  // Si cambia la variante/color, reiniciamos el carrusel a la primera foto (índice 0)
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [displayImages]);
+
   const handleIndexChange = (index: number) => {
     setActiveIndex(index);
-    const color = product.colors?.find(c => c.image === images[index]);
-    if (color) setSelectedColor(color.name);
   };
 
   return (
     <>
-      {/* Left Column: Image Gallery */}
+      {/* Columna Izquierda: Galería de Imágenes */}
+      {/* Ahora le inyectamos 'displayImages' (las fotos específicas de ese color) */}
       <ImageGallery
-        images={images}
+        images={displayImages}
         productName={displayName}
-        isAvailable={product.available}
+        isAvailable={product.available !== false}
         activeIndex={activeIndex}
         onIndexChange={handleIndexChange}
       />
 
-      {/* Right Column: Product Details */}
+      {/* Columna Derecha: Detalles del Producto */}
       <div className="lg:col-span-5 flex flex-col pt-2 md:pt-6">
         <h1
           className="text-3xl md:text-5xl font-bold italic tracking-tight text-brand-denim mb-4 transition-all duration-300"
@@ -67,16 +67,23 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
           </div>
         )}
 
+        {/* Componente de Interacciones (Botones de color, talla, agregar al carrito) */}
         <ProductInteractions
           product={product}
           returnsPolicy={returnsPolicy}
           selectedColor={selectedColor}
           activePrice={activePrice}
           activeDescription={activeDescription}
-          onColorChange={(color) => {
-            setSelectedColor(color.name);
-            const idx = color.image ? images.indexOf(color.image) : -1;
-            if (idx >= 0) setActiveIndex(idx);
+          onColorChange={(colorData) => {
+            // Extraer el nombre del color dependiendo de lo que devuelva tu ProductInteractions
+            const newColorName = typeof colorData === 'string' ? colorData : colorData.name;
+            setSelectedColor(newColorName);
+
+            // Si existen variantes, actualizamos toda la variante (para cambiar fotos y tallas)
+            if (product.variants) {
+              const matchedVariant = product.variants.find((v) => v.color === newColorName);
+              if (matchedVariant) setActiveVariant(matchedVariant);
+            }
           }}
         />
       </div>

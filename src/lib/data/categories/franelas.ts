@@ -13,13 +13,21 @@ export const franelasCategory: Category = {
       name: "Franela Esencial Blanca",
       price: "$29.00 BCV",
       numericPrice: 29.00,
-      image: "/images/FranelSinFondo.png",
+      image: "/images/oversize-serene-scape.jpeg",
       badge: "Bestseller",
       subtitle: "Inventario en el camino",
-      description: defaultDescription,
-      colors: defaultColors,
-      sizes: defaultSizes,
-      gallery: ["/images/FranelSinFondo.png", "/images/Franela2.png", "/images/Franela3.png", "/images/Franela4.png"]
+      variants: [
+        {
+          color: "Azul Oscuro",
+          sizes: ["L"],
+          gallery: ["/images/oversize-serene-scape-3.jpg", "/images/oversize-serene-scape.jpeg", "/images/overzise-serene-4.jpg"]
+        },
+        {
+          color: "Azul Claro",
+          sizes: ["XL"], // Tallas disponibles para este color
+          gallery: ["/images/oversize-serene-claro.jpg", "/images/oversize-serene-claro2.jpeg", "/images/oversize-serene-claro3.jpg"]
+        }
+      ]
     },
     {
       id: 2,

@@ -1,5 +1,6 @@
 export * from './types';
 
+// 1. Importamos Product en lugar de ProductVariant
 import { Category, Product } from './types';
 import { franelasCategory } from './data/categories/franelas';
 import { gorrasCategory } from './data/categories/gorras';
@@ -16,6 +17,7 @@ export const categories: Category[] = [
 ];
 
 // Helper functions
+// 2. Cambiamos el tipo de retorno a Product
 export function getProductById(id: number): Product | undefined {
   for (const category of categories) {
     const product = category.products.find(p => p.id === id);
@@ -24,6 +26,7 @@ export function getProductById(id: number): Product | undefined {
   return undefined;
 }
 
+// 3. Cambiamos el tipo de retorno a Product
 export function getProductBySlug(slug: string): Product | undefined {
   for (const category of categories) {
     const product = category.products.find(p => p.slug === slug);

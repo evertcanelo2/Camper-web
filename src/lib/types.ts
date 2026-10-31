@@ -17,7 +17,7 @@ export interface ProductSize {
   available: boolean;
 }
 
-export interface Product {
+export interface ProductVariant {
   id: number;
   slug: string;
   name: string;
@@ -32,6 +32,7 @@ export interface Product {
   sizes?: ProductSize[];
   gallery?: string[];
   available?: boolean;
+  variants?: ProductVariant[];
 }
 
 export interface Category {
@@ -39,6 +40,6 @@ export interface Category {
   name: string;
   tagline: string;
   image: string;
-  products: Product[];
+  products: ProductVariant[];
   returnsPolicy?: string;
 }

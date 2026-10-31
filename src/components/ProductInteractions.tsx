@@ -1,21 +1,18 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
-import type { Product, ProductColor } from '@/lib/collectionData';
+import type { Product, ProductColor } from '@/lib/types'; // <-- Importación corregida
 
 interface ProductInteractionsProps {
-  product: Product;
+  product: Product; // <-- Usamos Product aquí
   returnsPolicy?: string;
-  /** Color seleccionado (lo controla ProductDetail para sincronizarlo con la galería). */
   selectedColor?: string;
-  /** Descripción activa: puede ser la de la variante o la del producto base. */
   activePrice?: string;
   activeDescription?: string;
-  /** Se llama al elegir un color (para cambiar la foto de la galería). */
-  onColorChange?: (color: ProductColor) => void;
+  onColorChange?: (color: any) => void;
 }
 
 export default function ProductInteractions({
@@ -28,8 +25,10 @@ export default function ProductInteractions({
 }: ProductInteractionsProps) {
   const { addToCart } = useCart();
 
-  const initialColor = product?.colors?.find((c) => c.available)?.name || product?.colors?.[0]?.name || '';
-  const initialSize = product?.sizes?.find((s) => s.available)?.name || '';
+  // 1. Determinar estados iniciales adaptados a "variants" o "colors"
+  const initialVariant = product.variants?.[0];
+  const initialColor = initialVariant?.color || product?.colors?.find((c) => c.available)?.name || product?.colors?.[0]?.name || '';
+  const initialSize = initialVariant?.sizes?.[0] || product?.sizes?.find((s) => s.available)?.name || '';
 
   const [localColor, setLocalColor] = useState(initialColor);
   const selectedColor = selectedColorProp ?? localColor;
@@ -40,9 +39,30 @@ export default function ProductInteractions({
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
   const [isAdded, setIsAdded] = useState(false);
 
-  // Obtener variante activa y su disponibilidad
-  const activeVariant = product?.colors?.find((c) => c.name === selectedColor);
-  const isSelectedAvailable = activeVariant ? activeVariant.available !== false : product.available !== false;
+  // 2. Obtener la variante activa basada en el color seleccionado
+  const activeNewVariant = product.variants?.find((v) => v.color === selectedColor);
+  const activeOldVariant = product.colors?.find((c) => c.name === selectedColor);
+
+  // Disponibilidad
+  const isSelectedAvailable = activeNewVariant
+    ? true
+    : (activeOldVariant ? activeOldVariant.available !== false : product.available !== false);
+
+  // 3. Normalizar opciones para renderizar
+  const colorOptions = product.variants
+    ? product.variants.map((v) => ({ name: v.color, available: true, hex: '' }))
+    : (product.colors || []);
+
+  const sizeOptions = activeNewVariant
+    ? activeNewVariant.sizes.map((s) => ({ name: s, available: true }))
+    : (product.sizes || []);
+
+  // 4. Efecto: Si cambia el color y el nuevo color tiene tallas distintas, resetear la talla a la primera disponible
+  useEffect(() => {
+    if (activeNewVariant && !activeNewVariant.sizes.includes(selectedSize)) {
+      setSelectedSize(activeNewVariant.sizes[0]);
+    }
+  }, [selectedColor, activeNewVariant, selectedSize]);
 
   const handleAddToCart = useCallback(() => {
     if (!isSelectedAvailable) return;
@@ -50,23 +70,22 @@ export default function ProductInteractions({
     addToCart({
       productId: product.id,
       name: product.name,
-      price: activePrice ?? activeVariant?.price ?? product.price,
-      numericPrice: activeVariant?.numericPrice ?? product.numericPrice ?? 0,
-      image: activeVariant?.image ?? product.image,
+      price: activePrice ?? activeNewVariant?.price ?? product.price,
+      numericPrice: activeNewVariant?.numericPrice ?? product.numericPrice ?? 0,
+      image: activeNewVariant?.gallery?.[0] ?? activeOldVariant?.image ?? product.image,
       color: selectedColor || 'N/A',
       size: selectedSize || 'N/A',
       quantity,
     });
 
-    // Feedback animation
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
     }, 2000);
-  }, [addToCart, product, selectedColor, selectedSize, activePrice, activeVariant, quantity, isSelectedAvailable]);
+  }, [addToCart, product, selectedColor, selectedSize, activePrice, activeNewVariant, activeOldVariant, quantity, isSelectedAvailable]);
 
   const getWhatsAppLink = () => {
-    const unitPrice = activeVariant?.numericPrice ?? product.numericPrice ?? 0;
+    const unitPrice = activeNewVariant?.numericPrice ?? product.numericPrice ?? 0;
     const itemTotal = unitPrice * quantity;
     const formattedItemPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ USD` : `${itemTotal.toFixed(2)}$ USD`;
     const colorPart = selectedColor && selectedColor !== 'N/A' ? ` color ${selectedColor}` : '';
@@ -79,11 +98,11 @@ export default function ProductInteractions({
   return (
     <div>
       {/* Color Selector */}
-      {product.colors && product.colors.length > 0 && (
+      {colorOptions.length > 0 && (
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-brand-denim mb-3">Color</h3>
           <div className="flex flex-wrap gap-3">
-            {product.colors.map((color) => (
+            {colorOptions.map((color) => (
               <button
                 key={color.name}
                 type="button"
@@ -113,11 +132,11 @@ export default function ProductInteractions({
       )}
 
       {/* Size Selector */}
-      {product.sizes && product.sizes.length > 0 && (
+      {sizeOptions.length > 0 && (
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-brand-denim mb-3">Size</h3>
           <div className="flex flex-wrap gap-3">
-            {product.sizes.map((size) => (
+            {sizeOptions.map((size: any) => (
               <button
                 key={size.name}
                 type="button"
