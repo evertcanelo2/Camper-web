@@ -5,7 +5,7 @@ export const franelasCategory: Category = {
   slug: "franelas",
   name: "Franelas",
   tagline: "El clásico reimaginado",
-  image: "/images/Franela4.png",
+  image: "/images/versize-endless-summer.jpg",
   products: [
     {
       id: 1,
@@ -76,6 +76,70 @@ export const franelasCategory: Category = {
           color: "Beige", hex: '#C3BCAB',
           sizes: ["M"],
           gallery: ["/images/oversize-circuitflow.jpg", "/images/oversize-circuitflow2.jpg",]
+        },
+      ],
+    },
+    {
+      id: 37,
+      slug: "oversize-unicolor-marron",
+      name: "Oversize Unicolor Marron",
+      price: "$42.00 BCV",
+      numericPrice: 42.00,
+      image: "/images/franela-basica-marron.jpg",
+      badge: "Nuevo",
+      subtitle: "Exclusivo web",
+      description: defaultDescription,
+      variants: [
+        {
+          color: "Marron", hex: '#964B00',
+          sizes: ["L"],
+          gallery: ["/images/franela-basica-marron2.jpeg", "/images/franela-basica-marron.jpg",]
+        },
+      ],
+    },
+    {
+      id: 38,
+      slug: "oversize-dzinin",
+      name: "Oversize Dzinin",
+      price: "$42.00 BCV",
+      numericPrice: 42.00,
+      image: "/images/oversize-dzinin.jpeg",
+      badge: "Nuevo",
+      subtitle: "Exclusivo web",
+      description: defaultDescription,
+      variants: [
+        {
+          color: "Gris", hex: '#B8B7AE',
+          sizes: ["L"],
+          gallery: ["/images/oversize-dzinin2.jpg", "/images/oversize-dzinin.jpeg",]
+        },
+      ],
+    },
+    {
+      id: 39,
+      slug: "oversize-most-men",
+      name: "Oversize Most Men",
+      price: "$42.00 BCV",
+      numericPrice: 42.00,
+      image: "/images/oversize-most-men.jpg",
+      badge: "Nuevo",
+      subtitle: "Exclusivo web",
+      description: defaultDescription,
+      variants: [
+        {
+          color: "Gris", hex: '#525056',
+          sizes: ["L"],
+          gallery: ["/images/oversize-most-men.jpg",]
+        },
+        {
+          color: "Azul Cielo", hex: '#9EC2D8',
+          sizes: ["L"],
+          gallery: ["/images/oversize-most-men-azul.jpg",]
+        },
+        {
+          color: "Beige", hex: '#B4AA98',
+          sizes: ["S"],
+          gallery: ["/images/oversize-most-men-arena.jpeg",]
         },
       ],
     },
