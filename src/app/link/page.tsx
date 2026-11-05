@@ -30,7 +30,14 @@ export default function LinkPage() {
           src="/images/HeroForPhone.jpg"
           alt=""
           fill
-          className="object-cover object-[center_top]"
+          className="object-cover object-[center_top] md:hidden"
+          priority
+        />
+        <Image
+          src="/images/HeroForDesk.jpg"
+          alt=""
+          fill
+          className="hidden md:block object-cover object-[center_top] md:object-center"
           priority
         />
         {/* Gradient overlay — heavier at bottom so buttons stay legible */}
