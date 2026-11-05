@@ -1,5 +1,5 @@
 import { Category } from '../../types';
-import { defaultColors, defaultSizes, defaultDescription } from './common';
+import { defaultColors, defaultSizes } from './common';
 
 export const franelasCategory: Category = {
   slug: "franelas",
@@ -15,6 +15,7 @@ export const franelasCategory: Category = {
       numericPrice: 15.00,
       image: "/images/oversize-serene-scape.jpeg",
       badge: "Bestseller",
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Serene Scape forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L / XL",
       variants: [
         {
           color: "Azul", hex: '#020c79ff',
@@ -23,7 +24,7 @@ export const franelasCategory: Category = {
         },
         {
           color: "Azul Claro", hex: '#90d5ff',
-          sizes: ["XL"], // Tallas disponibles para este color
+          sizes: ["XL"],
           gallery: ["/images/oversize-serene-claro.jpg", "/images/oversize-serene-claro2.jpeg", "/images/oversize-serene-claro3.jpg"]
         }
       ]
@@ -36,6 +37,7 @@ export const franelasCategory: Category = {
       numericPrice: 15.00,
       image: "/images/versize-endless-summer.jpg",
       subtitle: "Envío inmediato",
+      description: "En Camper apostamos por la exclusividad real. Esta Versize Endless Summer forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: XL",
       variants: [
         {
           color: "Azul", hex: '#020c79ff',
@@ -52,7 +54,7 @@ export const franelasCategory: Category = {
       numericPrice: 15.00,
       image: "/images/oversize-unicolor-hueso.jpg",
       subtitle: "Pocas unidades",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Unicolor Hueso forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: M",
       variants: [
         {
           color: "Hueso", hex: '#f6f2ea',
@@ -70,7 +72,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-circuitflow2.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize CircuitFlow forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: M",
       variants: [
         {
           color: "Beige", hex: '#C3BCAB',
@@ -88,7 +90,7 @@ export const franelasCategory: Category = {
       image: "/images/franela-basica-marron.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Unicolor Marron forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L",
       variants: [
         {
           color: "Marron", hex: '#964B00',
@@ -106,7 +108,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-dzinin.jpeg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Dzinin forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L",
       variants: [
         {
           color: "Gris", hex: '#B8B7AE',
@@ -124,7 +126,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-most.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Most forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L",
       variants: [
         {
           color: "Arena", hex: '#C5AD82',
@@ -142,7 +144,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-believer.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Believer forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L",
       variants: [
         {
           color: "Crema", hex: '#DFD0BC',
@@ -160,7 +162,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-possible_11_11zon.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Possible forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L",
       variants: [
         {
           color: "Verde Militar", hex: '#64664A',
@@ -178,7 +180,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-ginal.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Ginal forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L",
       variants: [
         {
           color: "Taupe", hex: '#B9B19E',
@@ -196,7 +198,7 @@ export const franelasCategory: Category = {
       image: "/images/oversize-most-men.jpg",
       badge: "Nuevo",
       subtitle: "Exclusivo web",
-      description: defaultDescription,
+      description: "En Camper apostamos por la exclusividad real. Esta Oversize Most Men forma parte de nuestra selección limitada: diseño impecable, corte oversize y la certeza de llevar una prenda irrepetible en tu armario. Talla: L / S",
       variants: [
         {
           color: "Grafito", hex: '#4D4E53',
