@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, ShoppingBag } from 'lucide-react';
-import type { Metadata } from 'next';
 
 const WA_HREF = `https://wa.me/584145096447?text=${encodeURIComponent(
   'Holaaa bienvenido a camper 💙🤎\n\nIndícanos los siguientes datos para guardar tu número y así mantenerte informad@ 🙌🏻\n\n📎Nombre y apellido: \n📍¿En qué estado te encuentras?: \n\n¿como podemos ayudarte?'
@@ -21,6 +21,9 @@ const item = {
 };
 
 export default function LinkPage() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+
   return (
     <main className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-brand-denim">
 
@@ -49,7 +52,7 @@ export default function LinkPage() {
         className="relative z-10 flex flex-col items-center w-full max-w-[360px] px-5 py-14"
         variants={container}
         initial="hidden"
-        animate="show"
+        animate={mounted ? 'show' : 'hidden'}
       >
         {/* Logo */}
         <motion.div variants={item} className="mb-1">
@@ -68,7 +71,7 @@ export default function LinkPage() {
           variants={item}
           className="text-brand-nylon/70 text-[10px] font-light tracking-[0.3em] uppercase mb-10"
         >
-          Estilo que habla
+          Crea tu propio estilo
         </motion.p>
 
         {/* WhatsApp */}
