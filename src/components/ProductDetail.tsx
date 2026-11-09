@@ -45,6 +45,16 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
     if (idx >= 0) setActiveIndex(idx);
   };
 
+  // Al cambiar de foto (miniatura o flechas), en la estructura clásica se
+  // selecciona también el color al que pertenece esa foto.
+  const handleIndexChange = (idx: number) => {
+    setActiveIndex(idx);
+    if (hasVariants) return;
+
+    const color = product.colors?.find((c) => c.image === images[idx]);
+    if (color && color.name !== selectedColor) setSelectedColor(color.name);
+  };
+
   return (
     <>
       {/* key: al cambiar de variante se remonta la galería con sus fotos */}
@@ -54,7 +64,7 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
         productName={displayName}
         isAvailable={product.available !== false}
         activeIndex={activeIndex}
-        onIndexChange={setActiveIndex}
+        onIndexChange={handleIndexChange}
       />
 
       <div className="lg:col-span-5 flex flex-col pt-2 md:pt-6">
