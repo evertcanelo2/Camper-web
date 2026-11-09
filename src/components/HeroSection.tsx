@@ -5,7 +5,7 @@ export default function HeroSection() {
     <section className="relative w-full h-[100svh] min-h-[450px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image for Mobile */}
       <Image
-        src="/images/HeroForPhone.jpg"
+        src="/images/HeroForPhone.webp"
         alt="Camper Elegance"
         fill
         className="object-cover object-[center_top] md:hidden"
@@ -14,7 +14,7 @@ export default function HeroSection() {
 
       {/* Background Image for Desktop */}
       <Image
-        src="/images/HeroForDesk.jpg"
+        src="/images/HeroForDesk.webp"
         alt="Camper Elegance"
         fill
         className="hidden md:block object-cover object-[center_top] md:object-center"
@@ -25,7 +25,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 select-none px-6">
         <div className="relative w-full max-w-[220px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] aspect-[16/6] drop-shadow-xl">
           <Image
-            src="/images/CamperLogoWhite.png"
+            src="/images/CamperLogoWhite.webp"
             alt="Camper Official Logo"
             fill
             className="object-contain"

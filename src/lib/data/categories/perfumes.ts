@@ -5,7 +5,7 @@ export const perfumesCategory: Category = {
   slug: "perfumes",
   name: "Perfumes",
   tagline: "La esencia CAMPER",
-  image: "/images/asad-perfume.jpg",
+  image: "/images/asad-perfume.webp",
   returnsPolicy: "Por la naturaleza del producto (perfume sellado), no se aceptan cambios ni devoluciones una vez abierto. Aplica garantía únicamente por defecto de fábrica.",
   products: [
     {
@@ -14,13 +14,13 @@ export const perfumesCategory: Category = {
       name: "Linea Lattafa",
       price: "Desde 30.00 BCV",
       numericPrice: 30.00,
-      image: "/images/asad-perfume.jpg",
+      image: "/images/asad-perfume.webp",
       colors: [
         {
           name: "Asad",
           displayName: "Lattafa Asad",
           available: true,
-          image: "/images/asad-perfume.jpg",
+          image: "/images/asad-perfume.webp",
           description: `Asad - Lattafa Perfumes
 
 Descripción
@@ -44,7 +44,7 @@ Ocasión de Uso
           name: "Asad Elixir",
           displayName: "Lattafa Asad Elixir",
           available: true,
-          image: "/images/asad-elixir-perfume.jpg",
+          image: "/images/asad-elixir-perfume.webp",
           description: `Asad Elixir - Lattafa Perfumes
 
 Descripción: 
@@ -65,7 +65,7 @@ Ocasión de Uso: Eventos nocturnos, citas especiales, reuniones formales o clima
           name: "Asad Zanzibar",
           displayName: "Lattafa Asad Zanzibar",
           available: true,
-          image: "/images/asad-zanzibar-perfume.jpg",
+          image: "/images/asad-zanzibar-perfume.webp",
           description: `Asad Zanzibar - Lattafa Perfumes
 
 Descripción
@@ -87,7 +87,7 @@ Días cálidos, salidas al aire libre, eventos de día, vacaciones o tardes de v
           name: "Asad Bourbon",
           displayName: "Lattafa Asad Bourbon",
           available: true,
-          image: "/images/asad-bourbon-perfume.jpg",
+          image: "/images/asad-bourbon-perfume.webp",
           description: `Descripción: 
 Asad Bourbon de Lattafa es una fragancia cálida, licorosa y envolvente que aporta una faceta rica y seductora a la saga Asad. Destaca por sus matices dulce-amaderados y ahumados, creando una presencia reconfortante, sofisticada y sumamente elegante.
 
@@ -106,7 +106,7 @@ Citas nocturnas, eventos elegantes, salidas especiales o clima frío/templado (o
           name: "Yara",
           displayName: "Lattafa Yara",
           available: true,
-          image: "/images/yara-perfume.jpg",
+          image: "/images/yara-perfume.webp",
           description: `Descripción:
 Yara de Lattafa es una fragancia dulce, atalcada y sumamente femenina. Con un carácter cremoso y tropical que recuerda a un delicado postre de frutas y vainilla, es un aroma envolvente, encantador y lleno de delicadeza.
 
@@ -128,7 +128,7 @@ Ocasión de Uso:
           available: true,
           price: "65.00 BCV",
           numericPrice: 65.00,
-          image: "/images/art-of-universe-perfume.jpg",
+          image: "/images/art-of-universe-perfume.webp",
           description: `Art of Universe - Lattafa Pride
 
 Descripción:
@@ -152,7 +152,7 @@ Ocasión de Uso:
           name: "Eclaire",
           displayName: "Lattafa Eclaire",
           available: true,
-          image: "/images/eclaire-perfume.jpg",
+          image: "/images/eclaire-perfume.webp",
           description: `Eclaire - Lattafa Perfumes Dama 
 
 Descripción:
@@ -172,7 +172,7 @@ Ocasión de Uso:
  Momentos ideales: Salidas informales, citas románticas, uso diario o climas frescos y fríos (otoño e invierno).`,
         },
       ],
-      gallery: ["/images/asad-perfume.jpg", "/images/asad-elixir-perfume.jpg", "/images/asad-zanzibar-perfume.jpg", "/images/asad-bourbon-perfume.jpg", "/images/yara-perfume.jpg", "/images/art-of-universe-perfume.jpg", "/images/eclaire-perfume.jpg",],
+      gallery: ["/images/asad-perfume.webp", "/images/asad-elixir-perfume.webp", "/images/asad-zanzibar-perfume.webp", "/images/asad-bourbon-perfume.webp", "/images/yara-perfume.webp", "/images/art-of-universe-perfume.webp", "/images/eclaire-perfume.webp",],
     },
     {
       id: 24,
@@ -180,7 +180,7 @@ Ocasión de Uso:
       name: "Linea Odissey",
       price: "Desde 35.00 BCV",
       numericPrice: 35.00,
-      image: "/images/odissey-homme-perfume.jpg",
+      image: "/images/odissey-homme-perfume.webp",
       colors: [
         {
           name: "Odyssey Homme",
@@ -188,7 +188,7 @@ Ocasión de Uso:
           available: true,
           price: "35.00 BCV",
           numericPrice: 35.00,
-          image: "/images/odissey-homme-perfume.jpg",
+          image: "/images/odissey-homme-perfume.webp",
           description: `Odyssey Homme - Armaf
 
 Descripción:
@@ -213,7 +213,7 @@ Ocasión de Uso:
           available: true,
           price: "45.00 BCV",
           numericPrice: 45.00,
-          image: "/images/odyssey-mandarin-sky-perfume.jpg",
+          image: "/images/odyssey-mandarin-sky-perfume.webp",
           description: `Odyssey Mandarin Sky - Armaf
 
 Descripción: 
@@ -237,7 +237,7 @@ Ocasión de Uso:
           available: true,
           price: "45.00 BCV",
           numericPrice: 45.00,
-          image: "/images/odyssey-mandarin-sky-elixir-perfume.jpg",
+          image: "/images/odyssey-mandarin-sky-elixir-perfume.webp",
           description: `Odyssey Mandarin Sky Elixir - Armaf
 
 Descripción:
@@ -263,7 +263,7 @@ Ocasión de Uso:
           available: true,
           price: "35.00 BCV",
           numericPrice: 35.00,
-          image: "/images/odyssey-mega1-perfume.jpg",
+          image: "/images/odyssey-mega1-perfume.webp",
           description: `Odyssey Mega - Armaf
 
 Descripción:
@@ -289,7 +289,7 @@ Ocasión de Uso:
           available: true,
           price: "35.00 BCV",
           numericPrice: 35.00,
-          image: "/images/odyssey-wild-one-perfume.jpg",
+          image: "/images/odyssey-wild-one-perfume.webp",
           description: `Odyssey Wild One Gold Edition - Armaf
 
 Descripción:
@@ -315,7 +315,7 @@ Ocasión de Uso:
           available: true,
           price: "35.00 BCV",
           numericPrice: 35.00,
-          image: "/images/odyssey-tyrant.jpg",
+          image: "/images/odyssey-tyrant.webp",
           description: `Odyssey Tyrant Special Edition - Armaf
 
 Descripción:
@@ -336,7 +336,7 @@ Ocasión de Uso:
 `,
         },
       ],
-      gallery: ["/images/odissey-homme-perfume.jpg", "/images/odyssey-mandarin-sky-perfume.jpg", "/images/odyssey-mandarin-sky-elixir-perfume.jpg", "/images/odyssey-mega1-perfume.jpg", "/images/odyssey-wild-one-perfume.jpg", "/images/odyssey-tyrant.jpg",],
+      gallery: ["/images/odissey-homme-perfume.webp", "/images/odyssey-mandarin-sky-perfume.webp", "/images/odyssey-mandarin-sky-elixir-perfume.webp", "/images/odyssey-mega1-perfume.webp", "/images/odyssey-wild-one-perfume.webp", "/images/odyssey-tyrant.webp",],
     },
     {
       id: 25,
@@ -345,7 +345,7 @@ Ocasión de Uso:
       price: "55.00 BCV",
       numericPrice: 55.00,
       badge: "unisex",
-      image: "/images/amber-gold-perfume.jpg",
+      image: "/images/amber-gold-perfume.webp",
       description: `Amber Oud Gold Edition - Al Haramain
 
 Descripción: 
@@ -371,7 +371,7 @@ Ocasión de Uso:
       name: "Linea Afnan",
       price: "desde 40.00 BCV",
       numericPrice: 40.00,
-      image: "/images/9pm-night-perfume.jpg",
+      image: "/images/9pm-night-perfume.webp",
       colors: [
         {
           name: "9 PM Night Out",
@@ -379,7 +379,7 @@ Ocasión de Uso:
           available: true,
           price: "45.00 BCV",
           numericPrice: 45.00,
-          image: "/images/9pm-night-perfume.jpg",
+          image: "/images/9pm-night-perfume.webp",
           description: ``,
         },
         {
@@ -388,7 +388,7 @@ Ocasión de Uso:
           available: true,
           price: "40.00 BCV",
           numericPrice: 40.00,
-          image: "/images/9pm-rebel-perfume.jpg",
+          image: "/images/9pm-rebel-perfume.webp",
           description: ``,
         },
         {
@@ -397,7 +397,7 @@ Ocasión de Uso:
           available: true,
           price: "40.00 BCV",
           numericPrice: 40.00,
-          image: "/images/9pm-elixir-perfume.jpg",
+          image: "/images/9pm-elixir-perfume.webp",
           description: ``,
         },
         {
@@ -406,11 +406,11 @@ Ocasión de Uso:
           available: true,
           price: "40.00 BCV",
           numericPrice: 40.00,
-          image: "/images/9pm-perfume.jpg",
+          image: "/images/9pm-perfume.webp",
           description: ``,
         },
       ],
-      gallery: ["/images/9pm-night-perfume.jpg", "/images/9pm-rebel-perfume.jpg", "/images/9pm-elixir-perfume.jpg", "/images/9pm-perfume.jpg",],
+      gallery: ["/images/9pm-night-perfume.webp", "/images/9pm-rebel-perfume.webp", "/images/9pm-elixir-perfume.webp", "/images/9pm-perfume.webp",],
     },
     {
       id: 27,
@@ -418,7 +418,7 @@ Ocasión de Uso:
       name: "Linea Versace",
       price: "26.00 BCV",
       numericPrice: 26.00,
-      image: "/images/eros-versace.jpg",
+      image: "/images/eros-versace.webp",
       colors: [
         {
           name: "Eros",
@@ -426,7 +426,7 @@ Ocasión de Uso:
           available: true,
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/eros-versace.jpg",
+          image: "/images/eros-versace.webp",
           description: `Eros - Versace
 
 Descripción:
@@ -452,7 +452,7 @@ Ocasión de Uso:
           available: true,
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/eros-energy-versace.jpg",
+          image: "/images/eros-energy-versace.webp",
           description: `Eros Energy - Versace
 
 Descripción:
@@ -473,7 +473,7 @@ Ocasión de Uso:
 `,
         },
       ],
-      gallery: ["/images/eros-versace.jpg", "/images/eros-energy-versace.jpg"],
+      gallery: ["/images/eros-versace.webp", "/images/eros-energy-versace.webp"],
     },
     {
       id: 28,
@@ -481,7 +481,7 @@ Ocasión de Uso:
       name: "Sauvage",
       price: "26.00 BCV",
       numericPrice: 26.00,
-      image: "/images/sauvage-perfume.jpg",
+      image: "/images/sauvage-perfume.webp",
       description: `Sauvage Parfum - Dior
 
 Descripción:
@@ -507,7 +507,7 @@ Ocasión de Uso:
       name: "King Soleil - Bharara Beauty",
       price: "45.00 BCV",
       numericPrice: 45.00,
-      image: "/images/king-solei-perfume.jpg",
+      image: "/images/king-solei-perfume.webp",
       description: `King Soleil - Bharara Beauty
 
 Descripción:
@@ -534,7 +534,7 @@ Ocasión de Uso:
       name: "Linea Jean Paul Gaultier",
       price: "Desde 26.00 BCV",
       numericPrice: 26.00,
-      image: "/images/scandal-pour-perfume.jpg",
+      image: "/images/scandal-pour-perfume.webp",
       colors: [
         {
           name: "Scandal Pour Homme",
@@ -542,7 +542,7 @@ Ocasión de Uso:
           available: true,
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/scandal-pour-perfume.jpg",
+          image: "/images/scandal-pour-perfume.webp",
           description: `Scandal Pour Homme - Jean Paul Gaultier
 
 Descripción:
@@ -569,7 +569,7 @@ Ocasión de Uso:
           available: true,
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/scandal-pour-absolu-perfume.jpg",
+          image: "/images/scandal-pour-absolu-perfume.webp",
           description: `Scandal Pour Homme Absolu - Jean Paul Gaultier
 
 Descripción:
@@ -597,7 +597,7 @@ Ocasión de Uso:
           badge: "AGOTADO",
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/gaultier-divine-perfume.jpg",
+          image: "/images/gaultier-divine-perfume.webp",
           description: `Gaultier Divine Le Parfum - Jean Paul Gaultier Dama 
 
 Descripción: 
@@ -623,7 +623,7 @@ Ocasión de Uso:
           badge: "AGOTADO",
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/le-male-perfume.jpg",
+          image: "/images/le-male-perfume.webp",
           description: `Le Male Le Parfum - Jean Paul Gaultier
 
 Descripción:
@@ -649,7 +649,7 @@ Ocasión de Uso:
           badge: "AGOTADO",
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/le-beau-perfume.jpg",
+          image: "/images/le-beau-perfume.webp",
           description: `Le Beau - Jean Paul Gaultier
 
 Descripción:
@@ -677,7 +677,7 @@ Ocasión de Uso:
           badge: "AGOTADO",
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/le-beau-paradise.jpg",
+          image: "/images/le-beau-paradise.webp",
           description: `Le Beau Paradise Garden - Jean Paul Gaultier
 
 Descripción:
@@ -699,7 +699,7 @@ Ocasión de Uso:
 `,
         },
       ],
-      gallery: ["/images/scandal-pour-perfume.jpg", "/images/scandal-pour-absolu-perfume.jpg", "/images/gaultier-divine-perfume.jpg", "/images/le-male-perfume.jpg", "/images/le-beau-perfume.jpg", "/images/le-beau-paradise.jpg",],
+      gallery: ["/images/scandal-pour-perfume.webp", "/images/scandal-pour-absolu-perfume.webp", "/images/gaultier-divine-perfume.webp", "/images/le-male-perfume.webp", "/images/le-beau-perfume.webp", "/images/le-beau-paradise.webp",],
     },
     {
       id: 31,
@@ -707,7 +707,7 @@ Ocasión de Uso:
       name: "1 Million - Rabanne",
       price: "26.00 BCV",
       numericPrice: 26.00,
-      image: "/images/one-million.jpg",
+      image: "/images/one-million.webp",
       description: `1 Million - Rabanne
 
 Descripción:
@@ -733,7 +733,7 @@ Ocasión de Uso:
       name: "Linea Carolina Herrera",
       price: "30.00 BCV",
       numericPrice: 30.00,
-      image: "/images/bad-boy-perfume1.jpg",
+      image: "/images/bad-boy-perfume1.webp",
       description: ``,
       colors: [
         {
@@ -742,7 +742,7 @@ Ocasión de Uso:
           available: true,
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/bad-boy-perfume1.jpg",
+          image: "/images/bad-boy-perfume1.webp",
           description: `Bad Boy - Carolina Herrera
 
 Descripción:
@@ -769,7 +769,7 @@ Ocasión de Uso:
           available: true,
           price: "26.00 BCV",
           numericPrice: 26.00,
-          image: "/images/good-girl-perfume1.jpg",
+          image: "/images/good-girl-perfume1.webp",
           description: `Good Girl - Carolina Herrera
 
 Descripción:
@@ -790,7 +790,7 @@ Ocasión de Uso:
 `,
         },
       ],
-      gallery: ["/images/bad-boy-perfume1.jpg", "/images/good-girl-perfume1.jpg"],
+      gallery: ["/images/bad-boy-perfume1.webp", "/images/good-girl-perfume1.webp"],
     },
   ],
 };

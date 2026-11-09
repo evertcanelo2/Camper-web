@@ -5,7 +5,7 @@ export const gorrasCategory: Category = {
   slug: "gorras",
   name: "Gorras",
   tagline: "Lleva la esencia Camper",
-  image: "/images/nueva-gorra1.jpg",
+  image: "/images/nueva-gorra1.webp",
   products: [
     {
       id: 5,
@@ -13,14 +13,14 @@ export const gorrasCategory: Category = {
       name: "Top Quality Polemix",
       price: "$20.00 BCV",
       numericPrice: 20.00,
-      image: "/images/nueva-gorra1.jpg",
+      image: "/images/nueva-gorra1.webp",
       badge: "Popular",
       description: defaultDescription,
       colors: [
-        { name: 'Verde', hex: '#3B4E43', available: true, image: "/images/nueva-gorra1.jpg" },
-        { name: 'Beige', hex: '#D4B895', available: true, image: "/images/nueva-gorra-6.jpg" },
+        { name: 'Verde', hex: '#3B4E43', available: true, image: "/images/nueva-gorra1.webp" },
+        { name: 'Beige', hex: '#D4B895', available: true, image: "/images/nueva-gorra-6.webp" },
       ],
-      gallery: ["/images/nueva-gorra1.jpg", "/images/nueva-gorra-6.jpg",],
+      gallery: ["/images/nueva-gorra1.webp", "/images/nueva-gorra-6.webp",],
     },
     {
       id: 6,
@@ -28,10 +28,10 @@ export const gorrasCategory: Category = {
       name: "Top Quality Lackpard",
       price: "$20.00 BCV",
       numericPrice: 20.00,
-      image: "/images/nueva-gorra2.jpg",
+      image: "/images/nueva-gorra2.webp",
       badge: "Popular",
       description: defaultDescription,
-      gallery: ["/images/nueva-gorra2.jpg"],
+      gallery: ["/images/nueva-gorra2.webp"],
     },
 
     {
@@ -40,10 +40,10 @@ export const gorrasCategory: Category = {
       name: "Top Quality Barcelona",
       price: "$20.00 BCV",
       numericPrice: 20.00,
-      image: "/images/nueva-gorra3.jpg",
+      image: "/images/nueva-gorra3.webp",
       badge: "Popular",
       description: defaultDescription,
-      gallery: ["/images/nueva-gorra3.jpg"],
+      gallery: ["/images/nueva-gorra3.webp"],
     },
     {
       id: 34,
@@ -51,10 +51,10 @@ export const gorrasCategory: Category = {
       name: "Top Quality HUGO",
       price: "$20.00 BCV",
       numericPrice: 20.00,
-      image: "/images/nueva-gorra4.jpg",
+      image: "/images/nueva-gorra4.webp",
       badge: "Popular",
       description: defaultDescription,
-      gallery: ["/images/nueva-gorra4.jpg"],
+      gallery: ["/images/nueva-gorra4.webp"],
     },
     {
       id: 35,
@@ -62,9 +62,9 @@ export const gorrasCategory: Category = {
       name: "Top Quality Bass Pro Shop ",
       price: "$20.00 BCV",
       numericPrice: 20.00,
-      image: "/images/nueva-gorra-5.jpg",
+      image: "/images/nueva-gorra-5.webp",
       description: defaultDescription,
-      gallery: ["/images/nueva-gorra-5.jpg"],
+      gallery: ["/images/nueva-gorra-5.webp"],
     },
   ],
 };

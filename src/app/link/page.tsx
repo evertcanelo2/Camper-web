@@ -30,14 +30,14 @@ export default function LinkPage() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/HeroForPhone.jpg"
+          src="/images/HeroForPhone.webp"
           alt=""
           fill
           className="object-cover object-[center_top] md:hidden"
           priority
         />
         <Image
-          src="/images/HeroForDesk.jpg"
+          src="/images/HeroForDesk.webp"
           alt=""
           fill
           className="hidden md:block object-cover object-[center_top] md:object-center"
@@ -57,7 +57,7 @@ export default function LinkPage() {
         {/* Logo */}
         <motion.div variants={item} className="mb-1">
           <Image
-            src="/images/CamperLogoWhite.png"
+            src="/images/CamperLogoWhite.webp"
             alt="Camper VE"
             width={130}
             height={48}

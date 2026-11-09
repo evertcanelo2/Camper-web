@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="mb-6 -ml-3">
               <Image
-                src="/images/CamperLogoWhite.png"
+                src="/images/CamperLogoWhite.webp"
                 alt="Camper Logo"
                 width={140}
                 height={52}

@@ -123,7 +123,7 @@ export default function Navbar() {
               }}
             >
               <Image
-                src="/images/CamperLogoWhite.png"
+                src="/images/CamperLogoWhite.webp"
                 alt="Camper Logo"
                 width={160}
                 height={60}

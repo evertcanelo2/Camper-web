@@ -6,19 +6,19 @@ import Image from "next/image";
 
 const images = [
   // Columna 1 (frames 1, 3, 5)
-  "/images/1.jpg",
-  "/images/3.jpg",
-  "/images/5.jpg",
+  "/images/1.webp",
+  "/images/3.webp",
+  "/images/5.webp",
   // Columna 2 (frames 2, 4, 6)
-  "/images/2.jpg",
-  "/images/4.jpg",
-  "/images/6.jpg",
-  "/images/7-para-pc.jpeg",
-  "/images/8-para-pc.jpg",
-  "/images/Franela2.png",
-  "/images/Perfume2.jpg",
-  "/images/7-para-pc.jpeg",
-  "/images/7-para-pc.jpeg",
+  "/images/2.webp",
+  "/images/4.webp",
+  "/images/6.webp",
+  "/images/7-para-pc.webp",
+  "/images/8-para-pc.webp",
+  "/images/Franela2.webp",
+  "/images/Perfume2.webp",
+  "/images/7-para-pc.webp",
+  "/images/7-para-pc.webp",
 ];
 
 const Skiper30 = () => {
