@@ -58,11 +58,11 @@ export const lentesCategory: Category = {
       name: "Lentes Sport Espejo IV",
       price: "$11.00 BCV",
       numericPrice: 11.00,
-      image: "/images/lentes7.webp",
+      image: "/images/lentes.webp",
       badge: "Nuevo",
       subtitle: "Selección limitada",
       description: lentesDescription,
-      gallery: ["/images/lentes7.webp", "/images/lentes9.webp"],
+      gallery: ["/images/lentes.webp", "/images/lentes00.webp"],
     },
     {
       id: 48,
