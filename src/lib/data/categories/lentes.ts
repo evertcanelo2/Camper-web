@@ -8,7 +8,18 @@ Funciones: Ideal para actividades al aire libre, running, ciclismo o entrenamien
 
 Materiales: Fabricados con componentes resistentes de alta calidad para soportar el uso diario y el movimiento constante.
 
-Importante: Diseño exclusivo de selección limitada en stock. Lo que ves hoy, mañana ya no está.`;
+Importante: Diseño exclusivo de selección limitada en stock. Lo que ves hoy, mañana ya no está.
+
+Precio: 11$ BCV`;
+
+// Descripción propia de Lentes Sport Espejo IV
+const lentesEspejoIVDescription = `Funciones: Ideal para actividades al aire libre, running, ciclismo o entrenamiento, brindando cobertura total y comodidad prolongada.
+
+Materiales: Fabricados con componentes resistentes de alta calidad para soportar el uso diario y el movimiento constante.
+
+Importante: Diseño exclusivo de selección limitada en stock. Lo que ves hoy, mañana ya no está.
+
+Precio: 11$ BCV`;
 
 export const lentesCategory: Category = {
   slug: "lentes",
@@ -61,7 +72,7 @@ export const lentesCategory: Category = {
       image: "/images/lentes.webp",
       badge: "Nuevo",
       subtitle: "Selección limitada",
-      description: lentesDescription,
+      description: lentesEspejoIVDescription,
       gallery: ["/images/lentes.webp", "/images/lentes00.webp"],
     },
     {
