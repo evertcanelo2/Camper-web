@@ -97,6 +97,7 @@ export default function CollectionBentoGrid() {
                     'transition-transform duration-700 ease-out',
                     'group-hover:scale-105'
                   )}
+                  quality={85}
                   sizes="(max-width: 768px) 80vw, (max-width: 1024px) 340px, 380px"
                 />
               </div>

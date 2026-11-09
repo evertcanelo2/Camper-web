@@ -31,6 +31,7 @@ export default function ImageGallery({ images, productName, isAvailable = true, 
           alt={`${productName} view ${activeImageIndex + 1}`}
           fill
           priority
+          quality={85}
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
         />

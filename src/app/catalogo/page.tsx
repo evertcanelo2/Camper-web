@@ -70,6 +70,7 @@ export default function CatalogoPage() {
                         src={product.image}
                         alt={product.name}
                         fill
+                        quality={85}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         style={product.imagePosition ? { objectPosition: product.imagePosition } : undefined}
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"

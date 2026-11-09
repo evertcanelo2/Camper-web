@@ -9,6 +9,7 @@ export default function HeroSection() {
         alt="Camper Elegance"
         fill
         className="object-cover object-[center_top] md:hidden"
+        quality={85}
         priority
       />
 
@@ -18,6 +19,7 @@ export default function HeroSection() {
         alt="Camper Elegance"
         fill
         className="hidden md:block object-cover object-[center_top] md:object-center"
+        quality={85}
         priority
       />
 

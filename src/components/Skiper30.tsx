@@ -90,6 +90,7 @@ const Column = ({ images, y, className = "", isMobile }: ColumnProps) => {
               src={`${src}`}
               alt="image"
               fill
+              quality={85}
               sizes="(max-width: 768px) 100vw, 25vw"
               className="pointer-events-none object-cover"
             />
