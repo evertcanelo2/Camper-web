@@ -205,9 +205,22 @@ Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos 
       name: "Reloj Rolex de Dama",
       price: "$35.00 BCV",
       numericPrice: 35.00,
-      image: "/images/rolex-dama.webp",
+      image: "/images/rolex-dama2.webp",
       badge: "Nuevo",
-      description: ``,
+      description: `Reloj Rolex Dama
+
+Presencia, lujo y distinción en una sola pieza.
+
+Funciones: cuenta con indicación precisa de hora y ventanilla de fecha
+
+Caja: fabricada en acero inoxidable de alta calidad
+
+-Correa de eslabones
+-Caja Rolex verde
+
+Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.
+
+35$ BCV`,
       gallery: ["/images/rolex-dama.webp", "/images/rolex-dama2.webp"]
     },
   ],
