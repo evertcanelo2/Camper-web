@@ -120,8 +120,8 @@ Importante: Resistente solo a salpicaduras accidentales (lavado de manos o lluvi
       id: 22,
       slug: "reloj-casio-enticer-mtp-1302",
       name: "Reloj Casio Enticer MTP-1302",
-      price: "$13.50 BCV",
-      numericPrice: 13.50,
+      price: "$15.00 BCV",
+      numericPrice: 15.00,
       image: "/images/casio-enticer-mtp-1302.webp",
       description: `Casio Enticer MTP-1302
 
