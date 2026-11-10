@@ -196,7 +196,20 @@ Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos 
       numericPrice: 35.00,
       image: "/images/rolex-dorado.webp",
       badge: "Nuevo",
-      description: ``,
+      description: `Reloj Rolex caballero dorado
+
+Presencia, lujo y distinción en una sola pieza.
+
+Funciones: cuenta con indicación precisa de hora y ventanilla de fecha
+
+Caja: fabricada en acero inoxidable de alta calidad
+
+-Correa de eslabones
+-Caja Rolex verde
+
+Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos o lluvia leve). No apto para sumergir, ducha o natación.
+
+35$ BCV`,
       gallery: ["/images/rolex-dorado.webp"]
     },
     {
