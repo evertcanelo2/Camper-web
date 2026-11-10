@@ -35,6 +35,20 @@ export function getProductBySlug(slug: string): Product | undefined {
   return undefined;
 }
 
+/**
+ * Nombre y precio vigentes de un producto para el color elegido.
+ * Lo usan el carrito (al añadir y al refrescar precios guardados) y el botón "Comprar".
+ */
+export function getItemDetails(product: Product, color?: string) {
+  const variant = product.variants?.find((v) => v.color === color);
+  const colorOption = product.colors?.find((c) => c.name === color);
+  return {
+    name: variant?.name ?? colorOption?.displayName ?? product.name,
+    price: variant?.price ?? colorOption?.price ?? product.price,
+    numericPrice: variant?.numericPrice ?? colorOption?.numericPrice ?? product.numericPrice ?? 0,
+  };
+}
+
 export function getCategoryByProductSlug(slug: string): Category | undefined {
   for (const category of categories) {
     if (category.products.some(p => p.slug === slug)) {

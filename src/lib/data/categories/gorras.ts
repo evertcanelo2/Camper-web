@@ -1,5 +1,5 @@
 import { Category } from '../../types';
-import { defaultColors, defaultDescription } from './common';
+import { defaultDescription } from './common';
 
 export const gorrasCategory: Category = {
   slug: "gorras",

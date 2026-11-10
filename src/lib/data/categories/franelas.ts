@@ -1,5 +1,4 @@
 import { Category } from '../../types';
-import { defaultColors, defaultSizes } from './common';
 
 export const franelasCategory: Category = {
   slug: "franelas",

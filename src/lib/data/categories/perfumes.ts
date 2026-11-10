@@ -1,4 +1,3 @@
-import { Princess_Sofia } from 'next/font/google';
 import { Category } from '../../types';
 
 export const perfumesCategory: Category = {
@@ -19,6 +18,8 @@ export const perfumesCategory: Category = {
         {
           name: "Asad",
           displayName: "Lattafa Asad",
+          price: "30.00 BCV",
+          numericPrice: 30.00,
           available: true,
           image: "/images/asad-perfume.webp",
           description: `Asad - Lattafa Perfumes
@@ -43,6 +44,8 @@ Ocasión de Uso
         {
           name: "Asad Elixir",
           displayName: "Lattafa Asad Elixir",
+          price: "30.00 BCV",
+          numericPrice: 30.00,
           available: true,
           image: "/images/asad-elixir-perfume.webp",
           description: `Asad Elixir - Lattafa Perfumes
@@ -64,6 +67,8 @@ Ocasión de Uso: Eventos nocturnos, citas especiales, reuniones formales o clima
         {
           name: "Asad Zanzibar",
           displayName: "Lattafa Asad Zanzibar",
+          price: "30.00 BCV",
+          numericPrice: 30.00,
           available: true,
           image: "/images/asad-zanzibar-perfume.webp",
           description: `Asad Zanzibar - Lattafa Perfumes
@@ -86,6 +91,8 @@ Días cálidos, salidas al aire libre, eventos de día, vacaciones o tardes de v
         {
           name: "Asad Bourbon",
           displayName: "Lattafa Asad Bourbon",
+          price: "30.00 BCV",
+          numericPrice: 30.00,
           available: true,
           image: "/images/asad-bourbon-perfume.webp",
           description: `Descripción: 
@@ -105,6 +112,8 @@ Citas nocturnas, eventos elegantes, salidas especiales o clima frío/templado (o
         {
           name: "Yara",
           displayName: "Lattafa Yara",
+          price: "30.00 BCV",
+          numericPrice: 30.00,
           available: true,
           image: "/images/yara-perfume.webp",
           description: `Descripción:
@@ -151,6 +160,8 @@ Ocasión de Uso:
         {
           name: "Eclaire",
           displayName: "Lattafa Eclaire",
+          price: "30.00 BCV",
+          numericPrice: 30.00,
           available: true,
           image: "/images/eclaire-perfume.webp",
           description: `Eclaire - Lattafa Perfumes Dama 

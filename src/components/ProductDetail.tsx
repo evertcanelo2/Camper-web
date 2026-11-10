@@ -19,7 +19,12 @@ export default function ProductDetail({ product, images, returnsPolicy }: Produc
     : product.colors?.find((c) => c.available)?.name ?? product.colors?.[0]?.name ?? '';
 
   const [selectedColor, setSelectedColor] = useState(initialColor);
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Empezar en la foto del color inicial (puede no ser la primera si el primer color está agotado)
+  const [activeIndex, setActiveIndex] = useState(() => {
+    if (hasVariants) return 0;
+    const colorImage = product.colors?.find((c) => c.name === initialColor)?.image;
+    return Math.max(0, colorImage ? images.indexOf(colorImage) : 0);
+  });
 
   const activeVariant = product.variants?.find((v) => v.color === selectedColor);
   const activeColor = product.colors?.find((c) => c.name === selectedColor);

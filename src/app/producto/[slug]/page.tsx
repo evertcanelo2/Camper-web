@@ -50,11 +50,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col">
-      <div className="hidden md:block">
-        <Navbar />
-      </div>
+      <Navbar solid />
 
-      <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-16 pt-8 md:pt-40 pb-20">
+      <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-16 pt-24 md:pt-40 pb-20">
         
         <div className="flex justify-end items-center mb-8 text-xs md:text-sm text-brand-denim/70 font-light tracking-wide">
           <Link href={backHref} className="hover:text-brand-denim transition-colors flex items-center gap-1">

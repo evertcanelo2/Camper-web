@@ -191,7 +191,7 @@ Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos 
     {
       id: 49,
       slug: "rolex-datejust-dorado",
-      name: "Reloj Rolex Datejust Dorado",
+      name: "Reloj Rolex Datejust",
       price: "$35.00 BCV",
       numericPrice: 35.00,
       image: "/images/rolex-dorado.webp",

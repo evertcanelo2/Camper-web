@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
 import { normalizeSize, type Product } from '@/lib/types';
+import { getItemDetails } from '@/lib/collectionData';
 
 interface ProductInteractionsProps {
   product: Product;
@@ -36,7 +37,7 @@ export default function ProductInteractions({
   const selectedColor = selectedColorProp ?? localColor;
   const setSelectedColor = setLocalColor;
 
-  const [selectedSize, setSelectedSize] = useState(initialSize);
+  const [chosenSize, setSelectedSize] = useState(initialSize);
   const [quantity, setQuantity] = useState(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
   const [isAdded, setIsAdded] = useState(false);
@@ -57,22 +58,22 @@ export default function ProductInteractions({
 
   const sizeOptions = (activeNewVariant ? activeNewVariant.sizes : product.sizes || []).map(normalizeSize);
 
-  // 4. Si el nuevo color no tiene la talla elegida, pasar a la primera disponible
-  useEffect(() => {
-    if (activeNewVariant && !sizeOptions.some((s) => s.name === selectedSize && s.available)) {
-      setSelectedSize(sizeOptions.find((s) => s.available)?.name ?? '');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedColor]);
+  // 4. Si el color elegido no tiene la talla elegida, usar la primera disponible
+  const selectedSize = !activeNewVariant || sizeOptions.some((s) => s.name === chosenSize && s.available)
+    ? chosenSize
+    : sizeOptions.find((s) => s.available)?.name ?? '';
 
-  const handleAddToCart = useCallback(() => {
+  // Nombre y precio vigentes para el color elegido
+  const itemDetails = getItemDetails(product, selectedColor);
+
+  const handleAddToCart = () => {
     if (!isSelectedAvailable) return;
 
     addToCart({
       productId: product.id,
-      name: product.name,
-      price: activePrice ?? activeNewVariant?.price ?? product.price,
-      numericPrice: activeNewVariant?.numericPrice ?? activeOldVariant?.numericPrice ?? product.numericPrice ?? 0,
+      name: itemDetails.name,
+      price: activePrice ?? itemDetails.price,
+      numericPrice: itemDetails.numericPrice,
       image: activeNewVariant?.gallery?.[0] ?? activeOldVariant?.image ?? product.image,
       color: selectedColor || 'N/A',
       size: selectedSize || 'N/A',
@@ -83,16 +84,16 @@ export default function ProductInteractions({
     setTimeout(() => {
       setIsAdded(false);
     }, 2000);
-  }, [addToCart, product, selectedColor, selectedSize, activePrice, activeNewVariant, activeOldVariant, quantity, isSelectedAvailable]);
+  };
 
   const getWhatsAppLink = () => {
-    const unitPrice = activeNewVariant?.numericPrice ?? activeOldVariant?.numericPrice ?? product.numericPrice ?? 0;
+    const unitPrice = itemDetails.numericPrice;
     const itemTotal = unitPrice * quantity;
     const formattedItemPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ BCV` : `${itemTotal.toFixed(2)}$ BCV`;
-    const colorPart = selectedColor && selectedColor !== 'N/A' ? ` color ${selectedColor}` : '';
+    const colorPart = selectedColor && selectedColor !== 'N/A' && !itemDetails.name.includes(selectedColor) ? ` color ${selectedColor}` : '';
     const sizePart = selectedSize && selectedSize !== 'N/A' ? ` talla ${selectedSize}` : '';
 
-    const text = `¡Hola! Quisiera comprar directamente este artículo:\n\nDelivery:\nEnvío nacional:\nEntrega Personal:\n\nMi pedido:\n\n${quantity} ${product.name}${colorPart}${sizePart} ${formattedItemPrice}\n\nTotal: ${formattedItemPrice} o al cambio a la tasa del Banco Central de Venezuela`;
+    const text = `¡Hola! Quisiera comprar directamente este artículo:\n\nDelivery:\nEnvío nacional:\nEntrega Personal:\n\nMi pedido:\n\n${quantity} ${itemDetails.name}${colorPart}${sizePart} ${formattedItemPrice}\n\nTotal: ${formattedItemPrice} o al cambio a la tasa del Banco Central de Venezuela`;
     return `https://wa.me/584145096447?text=${encodeURIComponent(text)}`;
   };
 

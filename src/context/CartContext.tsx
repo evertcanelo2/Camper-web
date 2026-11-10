@@ -35,13 +35,30 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
+    let savedItems: CartItem[] = [];
     try {
       const savedCart = localStorage.getItem('camper_cart');
       if (savedCart) {
-        setCartItems(JSON.parse(savedCart));
+        savedItems = JSON.parse(savedCart);
+        setCartItems(savedItems);
       }
     } catch (e) {
       console.warn('Failed to access localStorage for cart hydration', e);
+    }
+
+    // Actualizar nombre y precio con los del catálogo actual (los precios pueden
+    // haber cambiado desde que se guardó el carrito) y quitar productos que ya no existen.
+    if (savedItems.length > 0) {
+      import('@/lib/collectionData').then(({ getProductById, getItemDetails }) => {
+        setCartItems((prev) =>
+          prev.flatMap((item) => {
+            const product = getProductById(item.productId);
+            if (!product) return [];
+            const color = item.color === 'N/A' ? undefined : item.color;
+            return [{ ...item, ...getItemDetails(product, color) }];
+          })
+        );
+      });
     }
   }, []);
 

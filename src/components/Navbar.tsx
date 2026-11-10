@@ -4,9 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ShoppingBag, Menu, Trash2 } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 
-export default function Navbar() {
+interface NavbarProps {
+  /** Fondo oscuro siempre visible (para páginas con fondo claro, donde el texto blanco no se vería). */
+  solid?: boolean;
+}
+
+export default function Navbar({ solid = false }: NavbarProps) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems, removeFromCart, updateQuantity, isCartOpen, setIsCartOpen, subtotal } = useCart();
   const [scrolled, setScrolled] = useState(false);
@@ -69,7 +76,7 @@ export default function Navbar() {
   };
 
   // Force glass state when menus are open for readability
-  const showGlass = scrolled || isOpen || isCartOpen;
+  const showGlass = solid || scrolled || isOpen || isCartOpen;
 
   return (
     <>
@@ -175,7 +182,11 @@ export default function Navbar() {
                       setIsOpen(false);
 
                       const target = document.getElementById(item.id) || document.getElementById('colecciones');
-                      if (!target) return;
+                      if (!target) {
+                        // Página sin colecciones (producto, legal…): ir a esa sección del catálogo
+                        router.push(`/catalogo#${item.id}`);
+                        return;
+                      }
 
                       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
                       smoothScrollTo(targetPosition);
@@ -214,7 +225,13 @@ export default function Navbar() {
                       </div>
                       <div className="flex-1">
                         <h4 className="text-white text-sm font-medium">{item.name}</h4>
-                        <p className="text-white/50 text-xs mt-1 font-light">Talla: {item.size} | Color: {item.color}</p>
+                        {(item.size !== 'N/A' || (item.color !== 'N/A' && !item.name.includes(item.color))) && (
+                          <p className="text-white/50 text-xs mt-1 font-light">
+                            {[item.size !== 'N/A' && `Talla: ${item.size}`, item.color !== 'N/A' && !item.name.includes(item.color) && `Color: ${item.color}`]
+                              .filter(Boolean)
+                              .join(' | ')}
+                          </p>
+                        )}
                         <div className="flex items-center gap-3 mt-2">
                           <div className="flex items-center bg-white/10 rounded-md">
                             <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-2 text-white/70 hover:text-white cursor-pointer touch-manipulation">-</button>
@@ -245,12 +262,12 @@ export default function Navbar() {
                       `¡Hola! Quisiera comprar directamente este artículo:\n\nDelivery:\nEnvío nacional:\nEntrega Personal:\n\nMi pedido:\n\n${cartItems
                         .map((i) => {
                           const itemTotal = i.numericPrice * i.quantity;
-                          const formattedPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ USD` : `${itemTotal.toFixed(2)}$ USD`;
-                          const colorPart = i.color && i.color !== 'N/A' ? ` color ${i.color}` : '';
+                          const formattedPrice = Number.isInteger(itemTotal) ? `${itemTotal}$ BCV` : `${itemTotal.toFixed(2)}$ BCV`;
+                          const colorPart = i.color && i.color !== 'N/A' && !i.name.includes(i.color) ? ` color ${i.color}` : '';
                           const sizePart = i.size && i.size !== 'N/A' ? ` talla ${i.size}` : '';
                           return `${i.quantity} ${i.name}${colorPart}${sizePart} ${formattedPrice}`;
                         })
-                        .join('\n\n')}\n\nTotal: ${Number.isInteger(subtotal) ? subtotal : subtotal.toFixed(2)}$ USD o al cambio a la tasa del Banco Central de Venezuela`
+                        .join('\n\n')}\n\nTotal: ${Number.isInteger(subtotal) ? subtotal : subtotal.toFixed(2)}$ BCV o al cambio a la tasa del Banco Central de Venezuela`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

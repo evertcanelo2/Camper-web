@@ -12,6 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://camperve.com"),
   title: "Camper VE",
   description: "Tienda Online ",
 };
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`min-h-full flex flex-col ${poppins.variable} ${caveat.variable} font-poppins antialiased bg-background text-foreground selection:bg-brand-gold selection:text-white`}>
         <CartProvider>
           {children}
