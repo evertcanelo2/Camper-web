@@ -188,5 +188,27 @@ Importante: Resistente únicamente a salpicaduras accidentales (lavado de manos 
       ],
       gallery: ["/images/reloj-rolex-submariner.webp", "/images/reloj-rolex-submariner-negro.webp", "/images/reloj-rolex-submariner-blanco.webp"]
     },
+    {
+      id: 49,
+      slug: "rolex-datejust-dorado",
+      name: "Reloj Rolex Datejust Dorado",
+      price: "$35.00 BCV",
+      numericPrice: 35.00,
+      image: "/images/rolex-dorado.webp",
+      badge: "Nuevo",
+      description: ``,
+      gallery: ["/images/rolex-dorado.webp"]
+    },
+    {
+      id: 50,
+      slug: "rolex-dama",
+      name: "Reloj Rolex de Dama",
+      price: "$35.00 BCV",
+      numericPrice: 35.00,
+      image: "/images/rolex-dama.webp",
+      badge: "Nuevo",
+      description: ``,
+      gallery: ["/images/rolex-dama.webp", "/images/rolex-dama2.webp"]
+    },
   ],
 };
